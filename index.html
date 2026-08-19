@@ -1,1 +1,768 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
+  <title>Business Subscriptions</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      font-family: Arial, Helvetica, sans-serif;
+      background:
+        linear-gradient(
+          135deg,
+          #f4f4f4 0%,
+          #ffffff 45%,
+          #eeeeee 100%
+        );
+      color: #151515;
+      overflow-x: hidden;
+    }
+
+    /* ---------- TOP TITLE ---------- */
+
+    .page-title {
+      text-align: center;
+      font-size: clamp(32px, 5vw, 68px);
+      font-weight: 900;
+      letter-spacing: 3px;
+      margin: 45px 20px 8px;
+
+      opacity: 0;
+      transform: translateY(-45px);
+
+      animation: titleIn 0.8s ease forwards;
+    }
+
+    .subtitle {
+      text-align: center;
+      color: #666;
+      font-size: 18px;
+      margin-bottom: 45px;
+
+      opacity: 0;
+      animation: fadeIn 0.8s ease 0.5s forwards;
+    }
+
+    /* ---------- CARDS AREA ---------- */
+
+    .plans {
+      width: min(1450px, 94%);
+      margin: 0 auto;
+
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 28px;
+
+      align-items: start;
+    }
+
+    .plan {
+      position: relative;
+      text-align: center;
+    }
+
+    /* ---------- LOGO + NAME ---------- */
+
+    .plan-header {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 15px;
+
+      margin-bottom: 15px;
+
+      opacity: 0;
+      transform: translateY(-150px);
+    }
+
+    .plan-logo {
+      width: 78px;
+      height: 78px;
+      object-fit: contain;
+    }
+
+    .plan-name {
+      font-size: clamp(29px, 3vw, 48px);
+      font-weight: 900;
+      letter-spacing: 2px;
+    }
+
+    .starter .plan-header {
+      animation: headerDrop 0.8s ease 0.7s forwards;
+    }
+
+    .economy .plan-header {
+      animation: headerDrop 0.8s ease 0.9s forwards;
+    }
+
+    .premium .plan-header {
+      animation: headerDrop 0.8s ease 1.1s forwards;
+    }
+
+    /* ---------- MAIN FRAME ---------- */
+
+    .plan-body {
+      width: 100%;
+
+      opacity: 0;
+      transform: translateY(250px);
+    }
+
+    .starter .plan-body {
+      animation: cardRise 0.9s ease 1.35s forwards;
+    }
+
+    .economy .plan-body {
+      animation: cardRise 0.9s ease 1.65s forwards;
+    }
+
+    .premium .plan-body {
+      animation: cardRise 0.9s ease 1.95s forwards;
+    }
+
+    .benefits {
+      width: 100%;
+      display: block;
+    }
+
+    /* ---------- IMAGE BUTTON ---------- */
+
+    .price-button {
+      width: 100%;
+      display: block;
+
+      border: 0;
+      padding: 0;
+      margin: 0;
+
+      background: transparent;
+      cursor: pointer;
+
+      transition:
+        transform 0.15s ease,
+        filter 0.15s ease;
+    }
+
+    .price-button img {
+      width: 100%;
+      display: block;
+    }
+
+    .price-button:hover {
+      transform: scale(1.025);
+      filter: brightness(1.06);
+    }
+
+    .price-button:active {
+      transform: scale(0.98);
+    }
+
+    /* ---------- PAYMENT NOTE ---------- */
+
+    .payment-note {
+      text-align: center;
+      color: #555;
+
+      font-size: 18px;
+      font-weight: 600;
+
+      margin: 35px 20px 50px;
+
+      opacity: 0;
+
+      animation: paymentNote 1.4s ease 2.9s forwards;
+    }
+
+    /* ---------- ADMIN BUTTON ---------- */
+
+    .admin-area {
+      text-align: center;
+      margin-bottom: 60px;
+    }
+
+    .admin-button {
+      border: 2px solid #777;
+      border-radius: 12px;
+
+      background: white;
+      color: #555;
+
+      padding: 11px 22px;
+
+      font-size: 15px;
+      font-weight: bold;
+
+      cursor: pointer;
+    }
+
+    .admin-button:hover {
+      background: #eee;
+    }
+
+    /* ---------- POPUP ---------- */
+
+    .overlay {
+      position: fixed;
+      inset: 0;
+
+      background: rgba(0, 0, 0, 0.55);
+
+      display: none;
+      justify-content: center;
+      align-items: center;
+
+      z-index: 100;
+      padding: 20px;
+    }
+
+    .overlay.visible {
+      display: flex;
+    }
+
+    .popup {
+      width: min(420px, 100%);
+
+      background: white;
+      border-radius: 20px;
+
+      padding: 28px;
+
+      box-shadow: 0 20px 70px rgba(0, 0, 0, 0.35);
+
+      animation: popupIn 0.25s ease;
+    }
+
+    .popup h2 {
+      margin: 0 0 7px;
+      font-size: 30px;
+    }
+
+    .popup-plan {
+      margin-bottom: 22px;
+      color: #666;
+    }
+
+    .popup label {
+      font-weight: bold;
+    }
+
+    .popup input {
+      width: 100%;
+
+      padding: 14px;
+      margin-top: 8px;
+      margin-bottom: 20px;
+
+      border-radius: 10px;
+      border: 2px solid #ccc;
+
+      font-size: 18px;
+      outline: none;
+    }
+
+    .popup input:focus {
+      border-color: #713094;
+    }
+
+    .popup-buttons {
+      display: flex;
+      gap: 10px;
+    }
+
+    .popup-buttons button {
+      flex: 1;
+
+      padding: 13px;
+
+      border: 0;
+      border-radius: 10px;
+
+      font-weight: bold;
+      font-size: 16px;
+
+      cursor: pointer;
+    }
+
+    .confirm {
+      background: #6d298d;
+      color: white;
+    }
+
+    .cancel {
+      background: #e5e5e5;
+      color: #333;
+    }
+
+    /* ---------- SUCCESS MESSAGE ---------- */
+
+    .success {
+      text-align: center;
+    }
+
+    .success-icon {
+      font-size: 56px;
+    }
+
+    /* ---------- ANIMATIONS ---------- */
+
+    @keyframes titleIn {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes headerDrop {
+      0% {
+        opacity: 0;
+        transform: translateY(-150px);
+      }
+
+      70% {
+        opacity: 1;
+        transform: translateY(8px);
+      }
+
+      100% {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes cardRise {
+      0% {
+        opacity: 0;
+        transform: translateY(250px);
+      }
+
+      75% {
+        opacity: 1;
+        transform: translateY(-7px);
+      }
+
+      100% {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes fadeIn {
+      to {
+        opacity: 1;
+      }
+    }
+
+    @keyframes paymentNote {
+      from {
+        opacity: 0;
+        color: transparent;
+      }
+
+      to {
+        opacity: 1;
+        color: #555;
+      }
+    }
+
+    @keyframes popupIn {
+      from {
+        opacity: 0;
+        transform: scale(0.9);
+      }
+
+      to {
+        opacity: 1;
+        transform: scale(1);
+      }
+    }
+
+    /* ---------- PHONE / TABLET ---------- */
+
+    @media (max-width: 900px) {
+      .plans {
+        grid-template-columns: 1fr;
+        width: min(520px, 92%);
+      }
+
+      .plan {
+        margin-bottom: 35px;
+      }
+
+      .page-title {
+        margin-top: 30px;
+      }
+
+      .plan-header {
+        margin-top: 15px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <h1 class="page-title">
+    BUSINESS SUBSCRIPTIONS
+  </h1>
+
+  <div class="subtitle">
+    Choose a plan for your business
+  </div>
+
+
+  <main class="plans">
+
+    <!-- STARTER -->
+
+    <section class="plan starter">
+
+      <div class="plan-header">
+        <img
+          class="plan-logo"
+          src="Starter logo.png"
+          alt="Starter logo"
+        />
+
+        <div class="plan-name">
+          STARTER
+        </div>
+      </div>
+
+      <div class="plan-body">
+
+        <img
+          class="benefits"
+          src="Starter benefits.png"
+          alt="Starter benefits"
+        />
+
+        <button
+          class="price-button"
+          onclick="choosePlan('Starter', '1.2 gold')"
+        >
+          <img
+            src="Starter button.png"
+            alt="Choose Starter"
+          />
+        </button>
+
+      </div>
+    </section>
+
+
+    <!-- ECONOMY -->
+
+    <section class="plan economy">
+
+      <div class="plan-header">
+        <img
+          class="plan-logo"
+          src="Economy logo.png"
+          alt="Economy logo"
+        />
+
+        <div class="plan-name">
+          ECONOMY
+        </div>
+      </div>
+
+      <div class="plan-body">
+
+        <img
+          class="benefits"
+          src="Economy benefits.png"
+          alt="Economy benefits"
+        />
+
+        <button
+          class="price-button"
+          onclick="choosePlan('Economy', '2.5 gold')"
+        >
+          <img
+            src="Economy button.png"
+            alt="Choose Economy"
+          />
+        </button>
+
+      </div>
+    </section>
+
+
+    <!-- PREMIUM -->
+
+    <section class="plan premium">
+
+      <div class="plan-header">
+        <img
+          class="plan-logo"
+          src="Premium logo.png"
+          alt="Premium logo"
+        />
+
+        <div class="plan-name">
+          PREMIUM
+        </div>
+      </div>
+
+      <div class="plan-body">
+
+        <img
+          class="benefits"
+          src="Premium benefits.png"
+          alt="Premium benefits"
+        />
+
+        <button
+          class="price-button"
+          onclick="choosePlan('Premium', '5 gold')"
+        >
+          <img
+            src="Premium button.png"
+            alt="Choose Premium"
+          />
+        </button>
+
+      </div>
+    </section>
+
+  </main>
+
+
+  <div class="payment-note">
+    * Every 2 real-life days
+  </div>
+
+
+  <div class="admin-area">
+    <button
+      class="admin-button"
+      onclick="adminComingSoon()"
+    >
+      ⚙ Admin login
+    </button>
+  </div>
+
+
+  <!-- PLAYER NAME POPUP -->
+
+  <div
+    class="overlay"
+    id="overlay"
+  >
+
+    <div
+      class="popup"
+      id="popup"
+    >
+
+      <div id="formView">
+
+        <h2 id="popupTitle">
+          Choose plan
+        </h2>
+
+        <div
+          class="popup-plan"
+          id="popupPlan"
+        ></div>
+
+        <label for="minecraftName">
+          Your Minecraft name
+        </label>
+
+        <input
+          id="minecraftName"
+          type="text"
+          placeholder="Example: hahatopro4"
+          maxlength="30"
+        />
+
+        <div class="popup-buttons">
+
+          <button
+            class="cancel"
+            onclick="closePopup()"
+          >
+            Cancel
+          </button>
+
+          <button
+            class="confirm"
+            onclick="confirmPlan()"
+          >
+            Confirm
+          </button>
+
+        </div>
+
+      </div>
+
+
+      <div
+        id="successView"
+        class="success"
+        style="display:none;"
+      >
+
+        <div class="success-icon">
+          ✅
+        </div>
+
+        <h2>
+          Subscription selected!
+        </h2>
+
+        <p id="successText"></p>
+
+        <button
+          class="confirm"
+          style="width:100%; padding:13px; border:0; border-radius:10px;"
+          onclick="closePopup()"
+        >
+          Done
+        </button>
+
+      </div>
+
+    </div>
+
+  </div>
+
+
+  <script>
+
+    let selectedPlan = "";
+    let selectedPrice = "";
+
+
+    function choosePlan(plan, price) {
+
+      selectedPlan = plan;
+      selectedPrice = price;
+
+      document.getElementById("popupTitle").textContent =
+        "Choose " + plan;
+
+      document.getElementById("popupPlan").textContent =
+        price + " • every 2 real-life days";
+
+      document.getElementById("minecraftName").value = "";
+
+      document.getElementById("formView").style.display =
+        "block";
+
+      document.getElementById("successView").style.display =
+        "none";
+
+      document
+        .getElementById("overlay")
+        .classList
+        .add("visible");
+
+      setTimeout(() => {
+        document
+          .getElementById("minecraftName")
+          .focus();
+      }, 100);
+    }
+
+
+    function closePopup() {
+
+      document
+        .getElementById("overlay")
+        .classList
+        .remove("visible");
+
+    }
+
+
+    function confirmPlan() {
+
+      const name =
+        document
+          .getElementById("minecraftName")
+          .value
+          .trim();
+
+      if (name.length === 0) {
+
+        alert("Please enter your Minecraft name.");
+
+        return;
+      }
+
+
+      /*
+        TEMPORARY:
+
+        This saves the subscription only in THIS browser.
+
+        In the next step we will replace this with
+        Supabase so everyone is saved in the same
+        online database.
+      */
+
+      const subscription = {
+        name: name,
+        plan: selectedPlan,
+        price: selectedPrice,
+        started: new Date().toISOString()
+      };
+
+      localStorage.setItem(
+        "minecraftSubscription",
+        JSON.stringify(subscription)
+      );
+
+
+      document.getElementById("formView").style.display =
+        "none";
+
+      document.getElementById("successView").style.display =
+        "block";
+
+      document.getElementById("successText").textContent =
+        name +
+        " chose " +
+        selectedPlan +
+        " for " +
+        selectedPrice +
+        ".";
+
+    }
+
+
+    function adminComingSoon() {
+
+      alert(
+        "Admin login will be connected securely in the next step."
+      );
+
+    }
+
+
+    /* Click dark background to close popup */
+
+    document
+      .getElementById("overlay")
+      .addEventListener("click", function(event) {
+
+        if (event.target === this) {
+          closePopup();
+        }
+
+      });
+
+  </script>
+
+</body>
+</html>
