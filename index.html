@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <title>Business Subscriptions</title>
 
@@ -14,7 +14,9 @@
     body {
       margin: 0;
       min-height: 100vh;
+
       font-family: Arial, Helvetica, sans-serif;
+
       background:
         linear-gradient(
           135deg,
@@ -22,17 +24,23 @@
           #ffffff 45%,
           #eeeeee 100%
         );
+
       color: #151515;
       overflow-x: hidden;
     }
 
-    /* ---------- TOP TITLE ---------- */
+
+    /* =========================================================
+       MAIN TITLE
+       ========================================================= */
 
     .page-title {
       text-align: center;
+
       font-size: clamp(32px, 5vw, 68px);
       font-weight: 900;
       letter-spacing: 3px;
+
       margin: 45px 20px 8px;
 
       opacity: 0;
@@ -41,40 +49,62 @@
       animation: titleIn 0.8s ease forwards;
     }
 
+
     .subtitle {
       text-align: center;
+
       color: #666;
       font-size: 18px;
-      margin-bottom: 45px;
+
+      margin-bottom: 35px;
 
       opacity: 0;
+
       animation: fadeIn 0.8s ease 0.5s forwards;
     }
 
-    /* ---------- CARDS AREA ---------- */
+
+    /* =========================================================
+       AREA CONTAINING THE 3 PLANS
+       ========================================================= */
+
+    .plans-area {
+      position: relative;
+
+      width: 100%;
+      margin: 0 auto;
+    }
+
 
     .plans {
-      width: min(1450px, 94%);
+      width: min(1450px, 70%);
       margin: 0 auto;
 
       display: grid;
       grid-template-columns: repeat(3, 1fr);
+
       gap: 28px;
 
       align-items: start;
     }
+
 
     .plan {
       position: relative;
       text-align: center;
     }
 
-    /* ---------- LOGO + NAME ---------- */
+
+    /* =========================================================
+       LOGOS + PLAN NAMES
+       ========================================================= */
 
     .plan-header {
       display: flex;
+
       justify-content: center;
       align-items: center;
+
       gap: 15px;
 
       margin-bottom: 15px;
@@ -83,67 +113,95 @@
       transform: translateY(-150px);
     }
 
+
     .plan-logo {
       width: 78px;
       height: 78px;
+
       object-fit: contain;
     }
+
 
     .plan-name {
       font-size: clamp(29px, 3vw, 48px);
       font-weight: 900;
+
       letter-spacing: 2px;
     }
+
 
     .starter .plan-header {
       animation: headerDrop 0.8s ease 0.7s forwards;
     }
 
+
     .economy .plan-header {
       animation: headerDrop 0.8s ease 0.9s forwards;
     }
+
 
     .premium .plan-header {
       animation: headerDrop 0.8s ease 1.1s forwards;
     }
 
-    /* ---------- MAIN FRAME ---------- */
+
+    /* =========================================================
+       BENEFIT FRAME
+       ========================================================= */
 
     .plan-body {
+      position: relative;
+
       width: 100%;
 
       opacity: 0;
       transform: translateY(250px);
     }
 
+
     .starter .plan-body {
       animation: cardRise 0.9s ease 1.35s forwards;
     }
+
 
     .economy .plan-body {
       animation: cardRise 0.9s ease 1.65s forwards;
     }
 
+
     .premium .plan-body {
       animation: cardRise 0.9s ease 1.95s forwards;
     }
+
 
     .benefits {
       width: 100%;
       display: block;
     }
 
-    /* ---------- IMAGE BUTTON ---------- */
+
+    /* =========================================================
+       PRICE BUTTON
+       
+       IMPORTANT:
+       This now sits ON TOP OF the empty bottom section
+       of your benefits image.
+       ========================================================= */
 
     .price-button {
+      position: absolute;
+
+      left: 0;
+      bottom: 0;
+
       width: 100%;
-      display: block;
 
       border: 0;
       padding: 0;
       margin: 0;
 
       background: transparent;
+
       cursor: pointer;
 
       transition:
@@ -151,45 +209,62 @@
         filter 0.15s ease;
     }
 
+
     .price-button img {
       width: 100%;
+
       display: block;
     }
 
+
     .price-button:hover {
       transform: scale(1.025);
+
       filter: brightness(1.06);
     }
+
 
     .price-button:active {
       transform: scale(0.98);
     }
 
-    /* ---------- PAYMENT NOTE ---------- */
+
+    /* =========================================================
+       "* EVERY 2 REAL-LIFE DAYS"
+       ========================================================= */
 
     .payment-note {
-      text-align: center;
+      position: absolute;
+
+      left: 24px;
+      bottom: 65px;
+
       color: #555;
 
-      font-size: 18px;
+      font-size: 17px;
       font-weight: 600;
-
-      margin: 35px 20px 50px;
 
       opacity: 0;
 
       animation: paymentNote 1.4s ease 2.9s forwards;
     }
 
-    /* ---------- ADMIN BUTTON ---------- */
+
+    /* =========================================================
+       ADMIN BUTTON
+       ========================================================= */
 
     .admin-area {
       text-align: center;
+
+      margin-top: 35px;
       margin-bottom: 60px;
     }
 
+
     .admin-button {
       border: 2px solid #777;
+
       border-radius: 12px;
 
       background: white;
@@ -201,81 +276,111 @@
       font-weight: bold;
 
       cursor: pointer;
+
+      transition:
+        transform 0.15s ease,
+        background 0.15s ease;
     }
+
 
     .admin-button:hover {
       background: #eee;
+
+      transform: scale(1.04);
     }
 
-    /* ---------- POPUP ---------- */
+
+    /* =========================================================
+       POPUPS
+       ========================================================= */
 
     .overlay {
       position: fixed;
+
       inset: 0;
 
       background: rgba(0, 0, 0, 0.55);
 
       display: none;
+
       justify-content: center;
       align-items: center;
 
       z-index: 100;
+
       padding: 20px;
     }
+
 
     .overlay.visible {
       display: flex;
     }
 
+
     .popup {
       width: min(420px, 100%);
 
       background: white;
+
       border-radius: 20px;
 
       padding: 28px;
 
-      box-shadow: 0 20px 70px rgba(0, 0, 0, 0.35);
+      box-shadow:
+        0 20px 70px rgba(0, 0, 0, 0.35);
 
       animation: popupIn 0.25s ease;
     }
 
+
     .popup h2 {
       margin: 0 0 7px;
+
       font-size: 30px;
     }
 
+
     .popup-plan {
       margin-bottom: 22px;
+
       color: #666;
     }
+
 
     .popup label {
       font-weight: bold;
     }
 
+
     .popup input {
       width: 100%;
 
       padding: 14px;
+
       margin-top: 8px;
       margin-bottom: 20px;
 
       border-radius: 10px;
+
       border: 2px solid #ccc;
 
       font-size: 18px;
+
       outline: none;
     }
+
 
     .popup input:focus {
       border-color: #713094;
     }
 
+
     .popup-buttons {
       display: flex;
+
       gap: 10px;
     }
+
 
     .popup-buttons button {
       flex: 1;
@@ -291,308 +396,458 @@
       cursor: pointer;
     }
 
+
     .confirm {
       background: #6d298d;
+
       color: white;
     }
 
+
     .cancel {
       background: #e5e5e5;
+
       color: #333;
     }
 
-    /* ---------- SUCCESS MESSAGE ---------- */
+
+    /* =========================================================
+       SUCCESS SCREEN
+       ========================================================= */
 
     .success {
       text-align: center;
     }
 
+
     .success-icon {
       font-size: 56px;
     }
 
-    /* ---------- ANIMATIONS ---------- */
+
+    /* =========================================================
+       ANIMATIONS
+       ========================================================= */
 
     @keyframes titleIn {
       to {
         opacity: 1;
+
         transform: translateY(0);
       }
     }
 
+
     @keyframes headerDrop {
+
       0% {
         opacity: 0;
+
         transform: translateY(-150px);
       }
 
       70% {
         opacity: 1;
+
         transform: translateY(8px);
       }
 
       100% {
         opacity: 1;
+
         transform: translateY(0);
       }
+
     }
 
+
     @keyframes cardRise {
+
       0% {
         opacity: 0;
+
         transform: translateY(250px);
       }
 
       75% {
         opacity: 1;
+
         transform: translateY(-7px);
       }
 
       100% {
         opacity: 1;
+
         transform: translateY(0);
       }
+
     }
 
+
     @keyframes fadeIn {
+
       to {
         opacity: 1;
       }
+
     }
 
+
     @keyframes paymentNote {
+
       from {
         opacity: 0;
+
         color: transparent;
       }
 
       to {
         opacity: 1;
+
         color: #555;
       }
+
     }
 
+
     @keyframes popupIn {
+
       from {
         opacity: 0;
+
         transform: scale(0.9);
       }
 
       to {
         opacity: 1;
+
         transform: scale(1);
       }
+
     }
 
-    /* ---------- PHONE / TABLET ---------- */
 
-    @media (max-width: 900px) {
+    /* =========================================================
+       PHONE / TABLET
+       ========================================================= */
+
+    @media (max-width: 1100px) {
+
+      .plans {
+        width: 88%;
+      }
+
+
+      .payment-note {
+        position: static;
+
+        text-align: center;
+
+        margin-top: 25px;
+      }
+
+    }
+
+
+    @media (max-width: 800px) {
+
       .plans {
         grid-template-columns: 1fr;
+
         width: min(520px, 92%);
       }
+
 
       .plan {
         margin-bottom: 35px;
       }
 
+
       .page-title {
         margin-top: 30px;
       }
 
+
       .plan-header {
         margin-top: 15px;
       }
+
+
+      .payment-note {
+        position: static;
+
+        text-align: center;
+
+        margin: 0 20px 20px;
+      }
+
     }
+
   </style>
 </head>
 
+
+
 <body>
+
+
+  <!-- =======================================================
+       TITLE
+       ======================================================= -->
 
   <h1 class="page-title">
     BUSINESS SUBSCRIPTIONS
   </h1>
+
 
   <div class="subtitle">
     Choose a plan for your business
   </div>
 
 
-  <main class="plans">
 
-    <!-- STARTER -->
+  <!-- =======================================================
+       SUBSCRIPTIONS
+       ======================================================= -->
 
-    <section class="plan starter">
+  <div class="plans-area">
 
-      <div class="plan-header">
-        <img
-          class="plan-logo"
-          src="Starter logo.png"
-          alt="Starter logo"
-        />
 
-        <div class="plan-name">
-          STARTER
-        </div>
-      </div>
+    <main class="plans">
 
-      <div class="plan-body">
 
-        <img
-          class="benefits"
-          src="Starter benefits.png"
-          alt="Starter benefits"
-        />
+      <!-- ================= STARTER ================= -->
 
-        <button
-          class="price-button"
-          onclick="choosePlan('Starter', '1.2 gold')"
-        >
+      <section class="plan starter">
+
+
+        <div class="plan-header">
+
           <img
-            src="Starter button.png"
-            alt="Choose Starter"
-          />
-        </button>
-
-      </div>
-    </section>
+            class="plan-logo"
+            src="Starter logo.png"
+            alt="Starter logo"
+          >
 
 
-    <!-- ECONOMY -->
+          <div class="plan-name">
+            STARTER
+          </div>
 
-    <section class="plan economy">
-
-      <div class="plan-header">
-        <img
-          class="plan-logo"
-          src="Economy logo.png"
-          alt="Economy logo"
-        />
-
-        <div class="plan-name">
-          ECONOMY
         </div>
-      </div>
 
-      <div class="plan-body">
 
-        <img
-          class="benefits"
-          src="Economy benefits.png"
-          alt="Economy benefits"
-        />
 
-        <button
-          class="price-button"
-          onclick="choosePlan('Economy', '2.5 gold')"
-        >
+        <div class="plan-body">
+
           <img
-            src="Economy button.png"
-            alt="Choose Economy"
-          />
-        </button>
-
-      </div>
-    </section>
+            class="benefits"
+            src="Starter benefits.png"
+            alt="Starter benefits"
+          >
 
 
-    <!-- PREMIUM -->
+          <button
+            class="price-button"
+            onclick="choosePlan('Starter', '1.2 gold')"
+          >
 
-    <section class="plan premium">
+            <img
+              src="Starter button.png"
+              alt="Choose Starter"
+            >
 
-      <div class="plan-header">
-        <img
-          class="plan-logo"
-          src="Premium logo.png"
-          alt="Premium logo"
-        />
+          </button>
 
-        <div class="plan-name">
-          PREMIUM
         </div>
-      </div>
 
-      <div class="plan-body">
 
-        <img
-          class="benefits"
-          src="Premium benefits.png"
-          alt="Premium benefits"
-        />
+      </section>
 
-        <button
-          class="price-button"
-          onclick="choosePlan('Premium', '5 gold')"
-        >
+
+
+      <!-- ================= ECONOMY ================= -->
+
+      <section class="plan economy">
+
+
+        <div class="plan-header">
+
           <img
-            src="Premium button.png"
-            alt="Choose Premium"
-          />
-        </button>
-
-      </div>
-    </section>
-
-  </main>
+            class="plan-logo"
+            src="Economy logo.png"
+            alt="Economy logo"
+          >
 
 
-  <div class="payment-note">
-    * Every 2 real-life days
+          <div class="plan-name">
+            ECONOMY
+          </div>
+
+        </div>
+
+
+
+        <div class="plan-body">
+
+          <img
+            class="benefits"
+            src="Economy benefits.png"
+            alt="Economy benefits"
+          >
+
+
+          <button
+            class="price-button"
+            onclick="choosePlan('Economy', '2.5 gold')"
+          >
+
+            <img
+              src="Economy button.png"
+              alt="Choose Economy"
+            >
+
+          </button>
+
+        </div>
+
+
+      </section>
+
+
+
+      <!-- ================= PREMIUM ================= -->
+
+      <section class="plan premium">
+
+
+        <div class="plan-header">
+
+          <img
+            class="plan-logo"
+            src="Premium logo.png"
+            alt="Premium logo"
+          >
+
+
+          <div class="plan-name">
+            PREMIUM
+          </div>
+
+        </div>
+
+
+
+        <div class="plan-body">
+
+          <img
+            class="benefits"
+            src="Premium benefits.png"
+            alt="Premium benefits"
+          >
+
+
+          <button
+            class="price-button"
+            onclick="choosePlan('Premium', '5 gold')"
+          >
+
+            <img
+              src="Premium button.png"
+              alt="Choose Premium"
+            >
+
+          </button>
+
+        </div>
+
+
+      </section>
+
+
+    </main>
+
+
+
+    <!-- NOTE ON THE LEFT -->
+
+    <div class="payment-note">
+      * Every 2 real-life days
+    </div>
+
+
   </div>
 
 
+
+  <!-- =======================================================
+       ADMIN
+       ======================================================= -->
+
   <div class="admin-area">
+
     <button
       class="admin-button"
-      onclick="adminComingSoon()"
+      onclick="openAdminLogin()"
     >
       ⚙ Admin login
     </button>
+
   </div>
 
 
-  <!-- PLAYER NAME POPUP -->
+
+  <!-- =======================================================
+       PLAYER SUBSCRIPTION POPUP
+       ======================================================= -->
 
   <div
     class="overlay"
-    id="overlay"
+    id="playerOverlay"
   >
 
-    <div
-      class="popup"
-      id="popup"
-    >
 
-      <div id="formView">
+    <div class="popup">
+
+
+      <div id="playerFormView">
+
 
         <h2 id="popupTitle">
           Choose plan
         </h2>
 
+
         <div
           class="popup-plan"
           id="popupPlan"
-        ></div>
+        >
+        </div>
+
 
         <label for="minecraftName">
           Your Minecraft name
         </label>
 
+
         <input
           id="minecraftName"
           type="text"
-          placeholder="Example: hahatopro4"
           maxlength="30"
-        />
+          autocomplete="off"
+        >
+
 
         <div class="popup-buttons">
 
+
           <button
             class="cancel"
-            onclick="closePopup()"
+            onclick="closePlayerPopup()"
           >
             Cancel
           </button>
+
 
           <button
             class="confirm"
@@ -601,9 +856,12 @@
             Confirm
           </button>
 
+
         </div>
 
+
       </div>
+
 
 
       <div
@@ -612,80 +870,200 @@
         style="display:none;"
       >
 
+
         <div class="success-icon">
           ✅
         </div>
+
 
         <h2>
           Subscription selected!
         </h2>
 
-        <p id="successText"></p>
+
+        <p id="successText">
+        </p>
+
 
         <button
           class="confirm"
-          style="width:100%; padding:13px; border:0; border-radius:10px;"
-          onclick="closePopup()"
+          style="
+            width:100%;
+            padding:13px;
+            border:0;
+            border-radius:10px;
+          "
+          onclick="closePlayerPopup()"
         >
           Done
         </button>
 
+
       </div>
 
+
     </div>
+
 
   </div>
 
 
+
+  <!-- =======================================================
+       ADMIN LOGIN POPUP
+       ======================================================= -->
+
+  <div
+    class="overlay"
+    id="adminOverlay"
+  >
+
+
+    <div class="popup">
+
+
+      <h2>
+        Admin Login
+      </h2>
+
+
+      <div class="popup-plan">
+        Enter the admin code
+      </div>
+
+
+      <label for="adminPassword">
+        Admin code
+      </label>
+
+
+      <input
+        id="adminPassword"
+        type="password"
+        autocomplete="off"
+      >
+
+
+      <div class="popup-buttons">
+
+
+        <button
+          class="cancel"
+          onclick="closeAdminLogin()"
+        >
+          Cancel
+        </button>
+
+
+        <button
+          class="confirm"
+          onclick="tryAdminLogin()"
+        >
+          Login
+        </button>
+
+
+      </div>
+
+
+    </div>
+
+
+  </div>
+
+
+
   <script>
+
+
+    /* =========================================================
+       SELECTED SUBSCRIPTION
+       ========================================================= */
 
     let selectedPlan = "";
     let selectedPrice = "";
 
 
+
+    /* =========================================================
+       PLAYER CHOOSES PLAN
+       ========================================================= */
+
     function choosePlan(plan, price) {
 
+
       selectedPlan = plan;
+
       selectedPrice = price;
 
-      document.getElementById("popupTitle").textContent =
-        "Choose " + plan;
-
-      document.getElementById("popupPlan").textContent =
-        price + " • every 2 real-life days";
-
-      document.getElementById("minecraftName").value = "";
-
-      document.getElementById("formView").style.display =
-        "block";
-
-      document.getElementById("successView").style.display =
-        "none";
 
       document
-        .getElementById("overlay")
+        .getElementById("popupTitle")
+        .textContent =
+        "Choose " + plan;
+
+
+      document
+        .getElementById("popupPlan")
+        .textContent =
+        price + " • every 2 real-life days";
+
+
+      document
+        .getElementById("minecraftName")
+        .value = "";
+
+
+      document
+        .getElementById("playerFormView")
+        .style.display = "block";
+
+
+      document
+        .getElementById("successView")
+        .style.display = "none";
+
+
+      document
+        .getElementById("playerOverlay")
         .classList
         .add("visible");
 
-      setTimeout(() => {
+
+      setTimeout(function () {
+
         document
           .getElementById("minecraftName")
           .focus();
+
       }, 100);
+
     }
 
 
-    function closePopup() {
+
+    /* =========================================================
+       CLOSE PLAYER POPUP
+       ========================================================= */
+
+    function closePlayerPopup() {
+
 
       document
-        .getElementById("overlay")
+        .getElementById("playerOverlay")
         .classList
         .remove("visible");
 
     }
 
 
+
+    /* =========================================================
+       CONFIRM PLAN
+       ========================================================= */
+
     function confirmPlan() {
+
 
       const name =
         document
@@ -693,30 +1071,37 @@
           .value
           .trim();
 
+
       if (name.length === 0) {
 
         alert("Please enter your Minecraft name.");
 
         return;
+
       }
 
 
       /*
-        TEMPORARY:
+        TEMPORARY STORAGE
 
-        This saves the subscription only in THIS browser.
+        Right now this saves only in the player's browser.
 
-        In the next step we will replace this with
-        Supabase so everyone is saved in the same
-        online database.
+        We will replace this with the shared online database
+        in the next stage.
       */
 
       const subscription = {
+
         name: name,
+
         plan: selectedPlan,
+
         price: selectedPrice,
+
         started: new Date().toISOString()
+
       };
+
 
       localStorage.setItem(
         "minecraftSubscription",
@@ -724,13 +1109,19 @@
       );
 
 
-      document.getElementById("formView").style.display =
-        "none";
+      document
+        .getElementById("playerFormView")
+        .style.display = "none";
 
-      document.getElementById("successView").style.display =
-        "block";
 
-      document.getElementById("successText").textContent =
+      document
+        .getElementById("successView")
+        .style.display = "block";
+
+
+      document
+        .getElementById("successText")
+        .textContent =
         name +
         " chose " +
         selectedPlan +
@@ -741,28 +1132,156 @@
     }
 
 
-    function adminComingSoon() {
+
+    /* =========================================================
+       ADMIN LOGIN POPUP
+       ========================================================= */
+
+    function openAdminLogin() {
+
+
+      document
+        .getElementById("adminPassword")
+        .value = "";
+
+
+      document
+        .getElementById("adminOverlay")
+        .classList
+        .add("visible");
+
+
+      setTimeout(function () {
+
+        document
+          .getElementById("adminPassword")
+          .focus();
+
+      }, 100);
+
+    }
+
+
+
+    function closeAdminLogin() {
+
+
+      document
+        .getElementById("adminOverlay")
+        .classList
+        .remove("visible");
+
+    }
+
+
+
+    /* =========================================================
+       ADMIN LOGIN
+
+       We WILL connect your real code securely after we add
+       the backend/database.
+       ========================================================= */
+
+    function tryAdminLogin() {
+
+
+      const code =
+        document
+          .getElementById("adminPassword")
+          .value;
+
+
+      if (code.length === 0) {
+
+        alert("Enter the admin code.");
+
+        return;
+
+      }
+
 
       alert(
-        "Admin login will be connected securely in the next step."
+        "The admin screen is ready, but the secure database/login is the next step."
       );
 
     }
 
 
-    /* Click dark background to close popup */
+
+    /* =========================================================
+       CLICK DARK AREA TO CLOSE POPUPS
+       ========================================================= */
 
     document
-      .getElementById("overlay")
-      .addEventListener("click", function(event) {
+      .getElementById("playerOverlay")
+      .addEventListener(
+        "click",
+        function (event) {
 
-        if (event.target === this) {
-          closePopup();
+          if (event.target === this) {
+
+            closePlayerPopup();
+
+          }
+
         }
+      );
 
-      });
+
+    document
+      .getElementById("adminOverlay")
+      .addEventListener(
+        "click",
+        function (event) {
+
+          if (event.target === this) {
+
+            closeAdminLogin();
+
+          }
+
+        }
+      );
+
+
+    /* =========================================================
+       PRESS ENTER
+       ========================================================= */
+
+    document
+      .getElementById("minecraftName")
+      .addEventListener(
+        "keydown",
+        function (event) {
+
+          if (event.key === "Enter") {
+
+            confirmPlan();
+
+          }
+
+        }
+      );
+
+
+    document
+      .getElementById("adminPassword")
+      .addEventListener(
+        "keydown",
+        function (event) {
+
+          if (event.key === "Enter") {
+
+            tryAdminLogin();
+
+          }
+
+        }
+      );
+
 
   </script>
+
 
 </body>
 </html>
