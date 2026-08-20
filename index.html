@@ -13,21 +13,15 @@
 
     :root {
       --purple: #6a2383;
-      --purple-light: #8e3ca4;
       --text: #151515;
-      --muted: #666;
-      --border: #d8d8d8;
     }
 
     body {
       margin: 0;
       min-height: 100vh;
-
       font-family: Arial, Helvetica, sans-serif;
-
       background: #ffffff;
       color: var(--text);
-
       overflow-x: hidden;
     }
 
@@ -42,11 +36,9 @@
 
     .page-title {
       text-align: center;
-
       font-size: clamp(36px, 4.5vw, 70px);
       font-weight: 900;
       letter-spacing: 4px;
-
       margin: 42px 20px 6px;
 
       opacity: 0;
@@ -57,14 +49,11 @@
 
     .subtitle {
       text-align: center;
-
       color: #666;
       font-size: 18px;
-
       margin-bottom: 32px;
 
       opacity: 0;
-
       animation: fadeIn 0.8s ease 0.45s forwards;
     }
 
@@ -82,8 +71,8 @@
 
       display: grid;
       grid-template-columns: repeat(3, 1fr);
-
       gap: 24px;
+
       align-items: start;
     }
 
@@ -102,7 +91,6 @@
       align-items: center;
 
       gap: 14px;
-
       margin-bottom: 12px;
 
       opacity: 0;
@@ -112,7 +100,6 @@
     .plan-logo {
       width: 82px;
       height: 82px;
-
       object-fit: contain;
     }
 
@@ -140,7 +127,6 @@
 
     .plan-body {
       position: relative;
-
       width: 100%;
 
       opacity: 0;
@@ -172,16 +158,22 @@
       position: absolute;
 
       left: 14%;
-      bottom: 1.5%;
-
       width: 72%;
+
+      /*
+        Your Canva benefits images have a large empty section
+        at the bottom.
+
+        This places the button in the MIDDLE of that area,
+        instead of touching the top dividing line.
+      */
+      bottom: 3.4%;
 
       border: 0;
       padding: 0;
       margin: 0;
 
       background: transparent;
-
       cursor: pointer;
 
       transition:
@@ -195,12 +187,12 @@
     }
 
     .price-button:hover {
-      transform: translateY(-2px) scale(1.035);
+      transform: scale(1.035);
       filter: brightness(1.06);
     }
 
     .price-button:active {
-      transform: translateY(1px) scale(0.975);
+      transform: scale(0.975);
     }
 
     /* =====================================================
@@ -212,7 +204,6 @@
       margin: 17px auto 0;
 
       color: #555;
-
       font-size: 17px;
       font-weight: 600;
 
@@ -227,7 +218,6 @@
 
     .admin-area {
       text-align: center;
-
       margin-top: 28px;
       margin-bottom: 60px;
     }
@@ -245,15 +235,6 @@
       font-weight: 700;
 
       cursor: pointer;
-
-      transition:
-        transform 0.15s ease,
-        background 0.15s ease;
-    }
-
-    .admin-button:hover {
-      background: #f2f2f2;
-      transform: scale(1.04);
     }
 
     /* =====================================================
@@ -281,16 +262,13 @@
     }
 
     /* =====================================================
-       NEW PLAN POPUP
+       PLAN POPUP
        ===================================================== */
 
     .plan-popup {
-      position: relative;
-
       width: min(500px, 100%);
 
       background: #fff;
-
       border-radius: 24px;
 
       overflow: hidden;
@@ -322,14 +300,8 @@
     .popup-plan-logo {
       width: 78px;
       height: 78px;
-
       object-fit: contain;
-
       flex-shrink: 0;
-    }
-
-    .popup-plan-info {
-      min-width: 0;
     }
 
     .popup-small-title {
@@ -347,7 +319,6 @@
     .popup-plan-name {
       font-size: 34px;
       font-weight: 900;
-
       line-height: 1;
     }
 
@@ -387,10 +358,6 @@
 
       border: 2px solid #d2d2d2;
       border-radius: 13px;
-
-      transition:
-        border 0.15s ease,
-        box-shadow 0.15s ease;
     }
 
     .minecraft-input-wrap:focus-within {
@@ -482,18 +449,6 @@
       font-weight: 800;
 
       cursor: pointer;
-
-      transition:
-        transform 0.14s ease,
-        filter 0.14s ease;
-    }
-
-    .popup-button:hover {
-      transform: translateY(-1px);
-    }
-
-    .popup-button:active {
-      transform: translateY(1px);
     }
 
     .cancel-button {
@@ -512,9 +467,7 @@
 
     .success-view {
       display: none;
-
       text-align: center;
-
       padding: 15px 0 5px;
     }
 
@@ -537,7 +490,6 @@
 
     .success-view h2 {
       margin: 0;
-
       font-size: 28px;
     }
 
@@ -545,7 +497,6 @@
       margin: 10px 0 23px;
 
       color: #666;
-
       line-height: 1.45;
     }
 
@@ -563,7 +514,6 @@
       padding: 28px;
 
       background: #fff;
-
       border-radius: 22px;
 
       box-shadow:
@@ -574,21 +524,17 @@
 
     .admin-popup h2 {
       margin: 0 0 5px;
-
       font-size: 29px;
     }
 
     .admin-popup-subtitle {
       color: #777;
-
       margin-bottom: 23px;
     }
 
     .admin-popup label {
       display: block;
-
       font-weight: 800;
-
       margin-bottom: 8px;
     }
 
@@ -726,7 +672,6 @@
 
       .page-title {
         margin-top: 28px;
-
         font-size: 38px;
       }
 
@@ -739,8 +684,9 @@
       }
 
       .price-button {
-        width: 70%;
-        left: 15%;
+        width: 72%;
+        left: 14%;
+        bottom: 3.4%;
       }
     }
 
@@ -748,10 +694,6 @@
 </head>
 
 <body>
-
-  <!-- =====================================================
-       TITLE
-       ===================================================== -->
 
   <h1 class="page-title">
     BUSINESS SUBSCRIPTIONS
@@ -761,17 +703,9 @@
     Choose a plan for your business
   </div>
 
-
-  <!-- =====================================================
-       PLANS
-       ===================================================== -->
-
   <div class="plans-area">
 
     <main class="plans">
-
-
-      <!-- STARTER -->
 
       <section class="plan starter">
 
@@ -818,9 +752,6 @@
 
       </section>
 
-
-      <!-- ECONOMY -->
-
       <section class="plan economy">
 
         <div class="plan-header">
@@ -865,9 +796,6 @@
         </div>
 
       </section>
-
-
-      <!-- PREMIUM -->
 
       <section class="plan premium">
 
@@ -914,20 +842,13 @@
 
       </section>
 
-
     </main>
-
 
     <div class="payment-note">
       * Every 2 real-life days
     </div>
 
   </div>
-
-
-  <!-- =====================================================
-       ADMIN BUTTON
-       ===================================================== -->
 
   <div class="admin-area">
 
@@ -940,10 +861,7 @@
 
   </div>
 
-
-  <!-- =====================================================
-       PLAN POPUP
-       ===================================================== -->
+  <!-- PLAYER POPUP -->
 
   <div
     class="overlay"
@@ -959,9 +877,6 @@
 
       <div class="popup-content">
 
-
-        <!-- FORM -->
-
         <div id="playerFormView">
 
           <div class="popup-plan-header">
@@ -973,7 +888,7 @@
               alt=""
             >
 
-            <div class="popup-plan-info">
+            <div>
 
               <div class="popup-small-title">
                 You are choosing
@@ -982,24 +897,18 @@
               <div
                 class="popup-plan-name"
                 id="popupPlanName"
-              >
-                Economy
-              </div>
+              ></div>
 
               <div
                 class="popup-price"
                 id="popupPrice"
-              >
-                2.5 gold
-              </div>
+              ></div>
 
             </div>
 
           </div>
 
-
           <div class="popup-divider"></div>
-
 
           <label
             class="minecraft-label"
@@ -1007,7 +916,6 @@
           >
             Minecraft username
           </label>
-
 
           <div class="minecraft-input-wrap">
 
@@ -1025,11 +933,9 @@
 
           </div>
 
-
           <div class="popup-help">
             Enter the name you use in our Minecraft world.
           </div>
-
 
           <div class="popup-summary">
 
@@ -1042,9 +948,7 @@
               <div
                 class="summary-value"
                 id="summaryPlan"
-              >
-                Economy
-              </div>
+              ></div>
 
             </div>
 
@@ -1054,7 +958,6 @@
             </div>
 
           </div>
-
 
           <div class="popup-buttons">
 
@@ -1076,9 +979,6 @@
           </div>
 
         </div>
-
-
-        <!-- SUCCESS -->
 
         <div
           class="success-view"
@@ -1113,10 +1013,7 @@
 
   </div>
 
-
-  <!-- =====================================================
-       ADMIN POPUP
-       ===================================================== -->
+  <!-- ADMIN POPUP -->
 
   <div
     class="overlay"
@@ -1165,18 +1062,12 @@
 
   </div>
 
-
   <script>
 
     let selectedPlan = "";
     let selectedPrice = "";
     let selectedLogo = "";
     let selectedColor = "";
-
-
-    /* =====================================================
-       CHOOSE PLAN
-       ===================================================== */
 
     function choosePlan(
       plan,
@@ -1190,57 +1081,46 @@
       selectedLogo = logo;
       selectedColor = color;
 
-
       document
         .getElementById("popupPlanName")
         .textContent = plan;
-
 
       document
         .getElementById("popupPrice")
         .textContent = price;
 
-
       document
         .getElementById("summaryPlan")
         .textContent = plan;
-
 
       document
         .getElementById("popupLogo")
         .src = logo;
 
-
       document
         .getElementById("popupAccent")
         .style.background = color;
-
 
       document
         .getElementById("subscribeButton")
         .style.background = color;
 
-
       document
         .getElementById("minecraftName")
         .value = "";
-
 
       document
         .getElementById("playerFormView")
         .style.display = "block";
 
-
       document
         .getElementById("successView")
         .style.display = "none";
-
 
       document
         .getElementById("playerOverlay")
         .classList
         .add("visible");
-
 
       setTimeout(function () {
 
@@ -1252,11 +1132,6 @@
 
     }
 
-
-    /* =====================================================
-       CLOSE PLAYER POPUP
-       ===================================================== */
-
     function closePlayerPopup() {
 
       document
@@ -1266,11 +1141,6 @@
 
     }
 
-
-    /* =====================================================
-       CONFIRM PLAN
-       ===================================================== */
-
     function confirmPlan() {
 
       const name =
@@ -1278,7 +1148,6 @@
           .getElementById("minecraftName")
           .value
           .trim();
-
 
       if (name.length === 0) {
 
@@ -1290,44 +1159,25 @@
 
       }
 
-
       const subscription = {
-
         name: name,
-
         plan: selectedPlan,
-
         price: selectedPrice,
-
-        started:
-          new Date().toISOString()
-
+        started: new Date().toISOString()
       };
-
-
-      /*
-        TEMPORARY:
-
-        This still saves only in this browser.
-
-        The shared database comes next.
-      */
 
       localStorage.setItem(
         "minecraftSubscription",
         JSON.stringify(subscription)
       );
 
-
       document
         .getElementById("playerFormView")
         .style.display = "none";
 
-
       document
         .getElementById("successView")
         .style.display = "block";
-
 
       document
         .getElementById("successText")
@@ -1343,23 +1193,16 @@
 
     }
 
-
-    /* =====================================================
-       ADMIN
-       ===================================================== */
-
     function openAdminLogin() {
 
       document
         .getElementById("adminPassword")
         .value = "";
 
-
       document
         .getElementById("adminOverlay")
         .classList
         .add("visible");
-
 
       setTimeout(function () {
 
@@ -1371,7 +1214,6 @@
 
     }
 
-
     function closeAdminLogin() {
 
       document
@@ -1381,14 +1223,12 @@
 
     }
 
-
     function tryAdminLogin() {
 
       const code =
         document
           .getElementById("adminPassword")
           .value;
-
 
       if (code.length === 0) {
 
@@ -1400,17 +1240,11 @@
 
       }
 
-
       alert(
         "Admin login will start working after we connect the shared subscriber database."
       );
 
     }
-
-
-    /* =====================================================
-       SAFE TEXT
-       ===================================================== */
 
     function escapeHTML(value) {
 
@@ -1423,11 +1257,6 @@
 
     }
 
-
-    /* =====================================================
-       CLICK BACKGROUND TO CLOSE
-       ===================================================== */
-
     document
       .getElementById("playerOverlay")
       .addEventListener(
@@ -1435,14 +1264,11 @@
         function(event) {
 
           if (event.target === this) {
-
             closePlayerPopup();
-
           }
 
         }
       );
-
 
     document
       .getElementById("adminOverlay")
@@ -1451,18 +1277,11 @@
         function(event) {
 
           if (event.target === this) {
-
             closeAdminLogin();
-
           }
 
         }
       );
-
-
-    /* =====================================================
-       ENTER KEY
-       ===================================================== */
 
     document
       .getElementById("minecraftName")
@@ -1471,14 +1290,11 @@
         function(event) {
 
           if (event.key === "Enter") {
-
             confirmPlan();
-
           }
 
         }
       );
-
 
     document
       .getElementById("adminPassword")
@@ -1487,9 +1303,7 @@
         function(event) {
 
           if (event.key === "Enter") {
-
             tryAdminLogin();
-
           }
 
         }
