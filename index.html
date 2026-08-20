@@ -13,24 +13,17 @@
 
     :root {
       --purple: #6a2383;
-      --purple-light: #8d3ba4;
       --text: #151515;
-      --muted: #666666;
       --green: #579b3d;
       --gold: #e5bc35;
-      --danger: #c83d3d;
-      --warning: #c78312;
     }
 
     body {
       margin: 0;
       min-height: 100vh;
-
       font-family: Arial, Helvetica, sans-serif;
-
       background: #ffffff;
       color: var(--text);
-
       overflow-x: hidden;
     }
 
@@ -39,59 +32,32 @@
       font: inherit;
     }
 
-    button {
-      -webkit-tap-highlight-color: transparent;
-    }
-
-    /* =====================================================
-       MAIN TITLE
-       ===================================================== */
-
     .page-title {
       text-align: center;
-
       font-size: clamp(36px, 4.5vw, 70px);
       font-weight: 900;
       letter-spacing: 4px;
-
       margin: 42px 20px 6px;
-
       opacity: 0;
       transform: translateY(-50px);
-
       animation: titleIn 0.8s ease forwards;
     }
 
     .subtitle {
       text-align: center;
-
       color: #666;
       font-size: 18px;
-
       margin-bottom: 32px;
-
       opacity: 0;
-
       animation: fadeIn 0.8s ease 0.45s forwards;
-    }
-
-    /* =====================================================
-       PLANS
-       ===================================================== */
-
-    .plans-area {
-      width: 100%;
     }
 
     .plans {
       width: min(1580px, 78%);
       margin: 0 auto;
-
       display: grid;
       grid-template-columns: repeat(3, 1fr);
-
       gap: 24px;
-
       align-items: start;
     }
 
@@ -100,19 +66,12 @@
       text-align: center;
     }
 
-    /* =====================================================
-       PLAN HEADERS
-       ===================================================== */
-
     .plan-header {
       display: flex;
       justify-content: center;
       align-items: center;
-
       gap: 14px;
-
       margin-bottom: 12px;
-
       opacity: 0;
       transform: translateY(-150px);
     }
@@ -120,14 +79,12 @@
     .plan-logo {
       width: 82px;
       height: 82px;
-
       object-fit: contain;
     }
 
     .plan-name {
       font-size: clamp(31px, 2.8vw, 50px);
       font-weight: 900;
-
       letter-spacing: 2px;
     }
 
@@ -143,15 +100,9 @@
       animation: headerDrop 0.8s ease 1.1s forwards;
     }
 
-    /* =====================================================
-       PLAN FRAMES
-       ===================================================== */
-
     .plan-body {
       position: relative;
-
       width: 100%;
-
       opacity: 0;
       transform: translateY(260px);
     }
@@ -173,31 +124,17 @@
       display: block;
     }
 
-    /* =====================================================
-       PRICE BUTTONS
-
-       Positioned in the middle of the empty section.
-       ===================================================== */
-
     .price-button {
       position: absolute;
-
       left: 14%;
       bottom: 3.4%;
-
       width: 72%;
-
       border: 0;
       padding: 0;
       margin: 0;
-
       background: transparent;
-
       cursor: pointer;
-
-      transition:
-        transform 0.16s ease,
-        filter 0.16s ease;
+      transition: transform 0.16s ease, filter 0.16s ease;
     }
 
     .price-button img {
@@ -214,31 +151,18 @@
       transform: scale(0.975);
     }
 
-    /* =====================================================
-       PAYMENT NOTE
-       ===================================================== */
-
     .payment-note {
       width: min(1580px, 78%);
       margin: 17px auto 0;
-
       color: #555;
-
       font-size: 17px;
       font-weight: 600;
-
       opacity: 0;
-
       animation: paymentNote 1.4s ease 2.9s forwards;
     }
 
-    /* =====================================================
-       ADMIN LOGIN BUTTON
-       ===================================================== */
-
     .admin-area {
       text-align: center;
-
       margin-top: 28px;
       margin-bottom: 60px;
     }
@@ -246,45 +170,23 @@
     .admin-button {
       border: 2px solid #777;
       border-radius: 12px;
-
-      background: #ffffff;
+      background: #fff;
       color: #444;
-
       padding: 11px 22px;
-
       font-size: 15px;
       font-weight: 700;
-
       cursor: pointer;
-
-      transition:
-        transform 0.15s ease,
-        background 0.15s ease;
     }
-
-    .admin-button:hover {
-      background: #f2f2f2;
-      transform: scale(1.04);
-    }
-
-    /* =====================================================
-       OVERLAY
-       ===================================================== */
 
     .overlay {
       position: fixed;
       inset: 0;
-
       display: none;
       justify-content: center;
       align-items: center;
-
       padding: 22px;
-
       background: rgba(20, 10, 25, 0.65);
-
       backdrop-filter: blur(5px);
-
       z-index: 1000;
     }
 
@@ -292,28 +194,23 @@
       display: flex;
     }
 
-    /* =====================================================
-       PLAN POPUP
-       ===================================================== */
-
-    .plan-popup {
+    .plan-popup,
+    .admin-popup {
       width: min(500px, 100%);
-
-      background: #ffffff;
-
+      background: #fff;
       border-radius: 24px;
-
       overflow: hidden;
-
-      box-shadow:
-        0 30px 90px rgba(0, 0, 0, 0.35);
-
+      box-shadow: 0 30px 90px rgba(0, 0, 0, 0.35);
       animation: popupIn 0.28s ease;
+    }
+
+    .admin-popup {
+      width: min(440px, 100%);
+      padding: 28px;
     }
 
     .popup-accent {
       height: 9px;
-
       background: var(--purple);
     }
 
@@ -324,62 +221,48 @@
     .popup-plan-header {
       display: flex;
       align-items: center;
-
       gap: 17px;
-
       margin-bottom: 24px;
     }
 
     .popup-plan-logo {
       width: 78px;
       height: 78px;
-
       object-fit: contain;
-
-      flex-shrink: 0;
     }
 
     .popup-small-title {
       color: #777;
-
       font-size: 14px;
       font-weight: 700;
-
       text-transform: uppercase;
       letter-spacing: 1.5px;
-
       margin-bottom: 3px;
     }
 
     .popup-plan-name {
       font-size: 34px;
       font-weight: 900;
-
       line-height: 1;
     }
 
     .popup-price {
       margin-top: 7px;
-
       color: #555;
-
       font-size: 17px;
       font-weight: 700;
     }
 
     .popup-divider {
       height: 1px;
-
       background: #e2e2e2;
-
       margin: 0 0 24px;
     }
 
-    .minecraft-label {
+    .minecraft-label,
+    .admin-popup label {
       display: block;
-
       margin-bottom: 8px;
-
       font-size: 16px;
       font-weight: 800;
     }
@@ -387,88 +270,74 @@
     .minecraft-input-wrap {
       display: flex;
       align-items: center;
-
       gap: 10px;
-
       padding: 4px 13px;
-
       border: 2px solid #d2d2d2;
       border-radius: 13px;
-
-      transition:
-        border 0.15s ease,
-        box-shadow 0.15s ease;
     }
 
     .minecraft-input-wrap:focus-within {
       border-color: var(--purple);
-
-      box-shadow:
-        0 0 0 4px rgba(106, 35, 131, 0.10);
-    }
-
-    .player-icon {
-      font-size: 23px;
+      box-shadow: 0 0 0 4px rgba(106, 35, 131, 0.10);
     }
 
     .minecraft-input {
       width: 100%;
-
       border: 0;
       outline: 0;
-
       padding: 12px 2px;
-
       font-size: 19px;
-
       background: transparent;
     }
 
-    .popup-help {
-      margin-top: 10px;
+    .admin-popup input {
+      width: 100%;
+      padding: 13px 14px;
+      border: 2px solid #ccc;
+      border-radius: 12px;
+      outline: 0;
+      font-size: 18px;
+      margin-bottom: 18px;
+    }
 
-      color: #888;
-
+    .popup-help,
+    .admin-popup-subtitle {
+      color: #777;
       font-size: 13px;
-
       line-height: 1.4;
+    }
+
+    .admin-popup-subtitle {
+      margin-bottom: 23px;
+      font-size: 15px;
     }
 
     .popup-summary {
       margin: 22px 0;
-
       padding: 16px 18px;
-
       border-radius: 14px;
-
       background: #f6f2f8;
-
       display: flex;
       justify-content: space-between;
       align-items: center;
-
       gap: 20px;
     }
 
     .summary-label {
       color: #777;
-
       font-size: 13px;
       font-weight: 700;
     }
 
     .summary-value {
       margin-top: 3px;
-
       font-size: 17px;
       font-weight: 900;
     }
 
     .summary-cycle {
       text-align: right;
-
       color: #555;
-
       font-size: 14px;
       font-weight: 700;
     }
@@ -476,38 +345,21 @@
     .popup-buttons {
       display: grid;
       grid-template-columns: 1fr 1.4fr;
-
       gap: 10px;
     }
 
     .popup-button {
       border: 0;
       border-radius: 12px;
-
       padding: 14px 16px;
-
       font-size: 16px;
       font-weight: 800;
-
       cursor: pointer;
-
-      transition:
-        transform 0.14s ease,
-        filter 0.14s ease;
-    }
-
-    .popup-button:hover {
-      transform: translateY(-1px);
-    }
-
-    .popup-button:active {
-      transform: translateY(1px);
     }
 
     .popup-button:disabled {
       opacity: 0.55;
       cursor: wait;
-      transform: none;
     }
 
     .cancel-button {
@@ -517,49 +369,30 @@
 
     .confirm-button {
       background: var(--purple);
-      color: #ffffff;
+      color: #fff;
     }
-
-    /* =====================================================
-       SUCCESS VIEW
-       ===================================================== */
 
     .success-view {
       display: none;
-
       text-align: center;
-
       padding: 15px 0 5px;
     }
 
     .success-circle {
       width: 82px;
       height: 82px;
-
       margin: 0 auto 18px;
-
       display: flex;
       justify-content: center;
       align-items: center;
-
       border-radius: 50%;
-
       background: #ecf8e9;
-
       font-size: 42px;
-    }
-
-    .success-view h2 {
-      margin: 0;
-
-      font-size: 28px;
     }
 
     .success-message {
       margin: 10px 0 23px;
-
       color: #666;
-
       line-height: 1.45;
     }
 
@@ -567,103 +400,30 @@
       width: 100%;
     }
 
-    /* =====================================================
-       ERROR MESSAGE
-       ===================================================== */
-
     .error-box {
       display: none;
-
       margin-top: 15px;
-
-      padding: 11px 13px;
-
+      padding: 12px 14px;
       border-radius: 10px;
-
       background: #fdeaea;
       color: #a12828;
-
       font-size: 14px;
       font-weight: 700;
-
-      line-height: 1.4;
+      line-height: 1.45;
+      white-space: pre-wrap;
+      overflow-wrap: anywhere;
     }
 
     .error-box.visible {
       display: block;
     }
 
-    /* =====================================================
-       ADMIN LOGIN POPUP
-       ===================================================== */
-
-    .admin-popup {
-      width: min(440px, 100%);
-
-      padding: 28px;
-
-      background: #ffffff;
-      border-radius: 22px;
-
-      box-shadow:
-        0 30px 90px rgba(0, 0, 0, 0.35);
-
-      animation: popupIn 0.28s ease;
-    }
-
-    .admin-popup h2 {
-      margin: 0 0 5px;
-
-      font-size: 29px;
-    }
-
-    .admin-popup-subtitle {
-      color: #777;
-
-      margin-bottom: 23px;
-    }
-
-    .admin-popup label {
-      display: block;
-
-      font-weight: 800;
-
-      margin-bottom: 8px;
-    }
-
-    .admin-popup input {
-      width: 100%;
-
-      padding: 13px 14px;
-
-      border: 2px solid #cccccc;
-      border-radius: 12px;
-
-      outline: 0;
-
-      font-size: 18px;
-
-      margin-bottom: 18px;
-    }
-
-    .admin-popup input:focus {
-      border-color: var(--purple);
-    }
-
-    /* =====================================================
-       ADMIN DASHBOARD
-       ===================================================== */
-
     .dashboard-overlay {
       position: fixed;
       inset: 0;
-
       display: none;
-
       background: #f6f6f6;
-
       z-index: 2000;
-
       overflow-y: auto;
     }
 
@@ -673,9 +433,7 @@
 
     .dashboard {
       width: min(1250px, 94%);
-
       margin: 0 auto;
-
       padding: 35px 0 70px;
     }
 
@@ -683,76 +441,56 @@
       display: flex;
       justify-content: space-between;
       align-items: flex-start;
-
       gap: 20px;
-
       margin-bottom: 28px;
     }
 
     .dashboard-title {
       margin: 0;
-
       font-size: clamp(30px, 4vw, 48px);
       font-weight: 900;
     }
 
     .dashboard-subtitle {
       margin-top: 6px;
-
       color: #777;
     }
 
     .dashboard-header-buttons {
       display: flex;
-
       gap: 9px;
-
       flex-wrap: wrap;
-
-      justify-content: flex-end;
     }
 
     .small-button {
       border: 0;
       border-radius: 10px;
-
       padding: 10px 15px;
-
       font-weight: 800;
-
       cursor: pointer;
     }
 
     .refresh-button {
       background: #e9e9e9;
-      color: #333;
     }
 
     .logout-button {
       background: #333;
-      color: #ffffff;
+      color: #fff;
     }
-
-    /* DASHBOARD STATS */
 
     .stats {
       display: grid;
       grid-template-columns: repeat(4, 1fr);
-
       gap: 14px;
-
       margin-bottom: 24px;
     }
 
     .stat-card {
       padding: 18px;
-
       border-radius: 16px;
-
-      background: #ffffff;
-
-      box-shadow:
-        0 4px 18px rgba(0, 0, 0, 0.06);
+      background: #fff;
+      box-shadow: 0 4px 18px rgba(0, 0, 0, 0.06);
     }
 
     .stat-number {
@@ -762,24 +500,18 @@
 
     .stat-label {
       margin-top: 3px;
-
       color: #777;
-
       font-size: 14px;
       font-weight: 700;
     }
 
-    /* SUBSCRIBER LIST */
-
     .subscriber-list {
       display: grid;
-
       gap: 12px;
     }
 
     .subscriber-card {
       display: grid;
-
       grid-template-columns:
         minmax(130px, 1.2fr)
         minmax(110px, 0.8fr)
@@ -789,33 +521,24 @@
 
       gap: 14px;
       align-items: center;
-
       padding: 17px 18px;
-
-      background: #ffffff;
-
+      background: #fff;
       border-radius: 16px;
-
-      box-shadow:
-        0 4px 18px rgba(0, 0, 0, 0.06);
+      box-shadow: 0 4px 18px rgba(0, 0, 0, 0.06);
     }
 
     .player-name {
       font-size: 18px;
       font-weight: 900;
-
       overflow-wrap: anywhere;
     }
 
-    .plan-pill {
+    .plan-pill,
+    .status {
       display: inline-block;
-
       width: fit-content;
-
       padding: 6px 10px;
-
       border-radius: 100px;
-
       font-size: 13px;
       font-weight: 900;
     }
@@ -835,36 +558,6 @@
       color: #755400;
     }
 
-    .info-label {
-      color: #888;
-
-      font-size: 11px;
-      font-weight: 800;
-
-      text-transform: uppercase;
-
-      margin-bottom: 3px;
-    }
-
-    .info-value {
-      font-weight: 800;
-    }
-
-    /* PAYMENT STATUS */
-
-    .status {
-      display: inline-block;
-
-      width: fit-content;
-
-      padding: 6px 10px;
-
-      border-radius: 100px;
-
-      font-size: 13px;
-      font-weight: 900;
-    }
-
     .status-upcoming {
       background: #e7f3e4;
       color: #3b762b;
@@ -880,67 +573,50 @@
       color: #a92d2d;
     }
 
+    .info-label {
+      color: #888;
+      font-size: 11px;
+      font-weight: 800;
+      text-transform: uppercase;
+      margin-bottom: 3px;
+    }
+
+    .info-value {
+      font-weight: 800;
+    }
+
     .subscriber-actions {
       display: flex;
-
       gap: 7px;
-
       justify-content: flex-end;
-
       flex-wrap: wrap;
     }
 
-    .paid-button {
-      border: 0;
-      border-radius: 9px;
-
-      padding: 9px 12px;
-
-      background: #579b3d;
-      color: #ffffff;
-
-      font-weight: 800;
-
-      cursor: pointer;
-    }
-
+    .paid-button,
     .cancel-sub-button {
       border: 0;
       border-radius: 9px;
-
       padding: 9px 12px;
-
-      background: #eeeeee;
-      color: #7a2424;
-
       font-weight: 800;
-
       cursor: pointer;
     }
 
-    .empty-list {
-      padding: 45px 20px;
-
-      text-align: center;
-
-      background: #ffffff;
-
-      border-radius: 16px;
-
-      color: #777;
+    .paid-button {
+      background: #579b3d;
+      color: #fff;
     }
 
+    .cancel-sub-button {
+      background: #eeeeee;
+      color: #7a2424;
+    }
+
+    .empty-list,
     .loading {
       padding: 45px 20px;
-
       text-align: center;
-
       color: #777;
     }
-
-    /* =====================================================
-       ANIMATIONS
-       ===================================================== */
 
     @keyframes titleIn {
       to {
@@ -1004,99 +680,23 @@
     @keyframes popupIn {
       from {
         opacity: 0;
-
-        transform:
-          translateY(15px)
-          scale(0.94);
+        transform: translateY(15px) scale(0.94);
       }
 
       to {
         opacity: 1;
-
-        transform:
-          translateY(0)
-          scale(1);
+        transform: translateY(0) scale(1);
       }
     }
-
-    /* =====================================================
-       TABLET
-       ===================================================== */
-
-    @media (max-width: 1150px) {
-      .plans {
-        width: 90%;
-      }
-
-      .payment-note {
-        width: 90%;
-      }
-
-      .plan-logo {
-        width: 68px;
-        height: 68px;
-      }
-
-      .subscriber-card {
-        grid-template-columns:
-          1fr
-          1fr
-          1fr;
-      }
-
-      .subscriber-actions {
-        grid-column: span 3;
-
-        justify-content: flex-start;
-      }
-    }
-
-    /* =====================================================
-       PHONE
-       ===================================================== */
 
     @media (max-width: 800px) {
       .plans {
         grid-template-columns: 1fr;
-
         width: min(540px, 92%);
       }
 
       .payment-note {
         width: min(540px, 92%);
-      }
-
-      .plan {
-        margin-bottom: 38px;
-      }
-
-      .page-title {
-        margin-top: 28px;
-
-        font-size: 38px;
-      }
-
-      .subtitle {
-        margin-bottom: 18px;
-      }
-
-      .plan-header {
-        margin-top: 12px;
-      }
-
-      .price-button {
-        width: 72%;
-
-        left: 14%;
-        bottom: 3.4%;
-      }
-
-      .dashboard-header {
-        flex-direction: column;
-      }
-
-      .dashboard-header-buttons {
-        justify-content: flex-start;
       }
 
       .stats {
@@ -1106,19 +706,11 @@
       .subscriber-card {
         grid-template-columns: 1fr;
       }
-
-      .subscriber-actions {
-        grid-column: auto;
-      }
     }
   </style>
 </head>
 
 <body>
-
-  <!-- =====================================================
-       TITLE
-       ===================================================== -->
 
   <h1 class="page-title">
     BUSINESS SUBSCRIPTIONS
@@ -1128,218 +720,103 @@
     Choose a plan for your business
   </div>
 
+  <main class="plans">
 
-  <!-- =====================================================
-       PLANS
-       ===================================================== -->
+    <section class="plan starter">
 
-  <div class="plans-area">
+      <div class="plan-header">
+        <img class="plan-logo" src="Starter logo.png" alt="Starter logo">
+        <div class="plan-name">STARTER</div>
+      </div>
 
-    <main class="plans">
+      <div class="plan-body">
 
+        <img class="benefits" src="Starter benefits.png" alt="Starter benefits">
 
-      <!-- STARTER -->
+        <button
+          class="price-button"
+          onclick="choosePlan('Starter', '1.2 gold', 'Starter logo.png', '#579b3d')"
+        >
+          <img src="Starter button.png" alt="Choose Starter">
+        </button>
 
-      <section class="plan starter">
+      </div>
 
-        <div class="plan-header">
+    </section>
 
-          <img
-            class="plan-logo"
-            src="Starter logo.png"
-            alt="Starter logo"
-          >
+    <section class="plan economy">
 
-          <div class="plan-name">
-            STARTER
-          </div>
+      <div class="plan-header">
+        <img class="plan-logo" src="Economy logo.png" alt="Economy logo">
+        <div class="plan-name">ECONOMY</div>
+      </div>
 
-        </div>
+      <div class="plan-body">
 
+        <img class="benefits" src="Economy benefits.png" alt="Economy benefits">
 
-        <div class="plan-body">
+        <button
+          class="price-button"
+          onclick="choosePlan('Economy', '2.5 gold', 'Economy logo.png', '#e5bc35')"
+        >
+          <img src="Economy button.png" alt="Choose Economy">
+        </button>
 
-          <img
-            class="benefits"
-            src="Starter benefits.png"
-            alt="Starter benefits"
-          >
+      </div>
 
-          <button
-            class="price-button"
-            onclick="choosePlan(
-              'Starter',
-              '1.2 gold',
-              'Starter logo.png',
-              '#579b3d'
-            )"
-          >
+    </section>
 
-            <img
-              src="Starter button.png"
-              alt="Choose Starter"
-            >
+    <section class="plan premium">
 
-          </button>
+      <div class="plan-header">
+        <img class="plan-logo" src="Premium logo.png" alt="Premium logo">
+        <div class="plan-name">PREMIUM</div>
+      </div>
 
-        </div>
+      <div class="plan-body">
 
-      </section>
+        <img class="benefits" src="Premium benefits.png" alt="Premium benefits">
 
+        <button
+          class="price-button"
+          onclick="choosePlan('Premium', '5 gold', 'Premium logo.png', '#e5bc35')"
+        >
+          <img src="Premium button.png" alt="Choose Premium">
+        </button>
 
-      <!-- ECONOMY -->
+      </div>
 
-      <section class="plan economy">
+    </section>
 
-        <div class="plan-header">
+  </main>
 
-          <img
-            class="plan-logo"
-            src="Economy logo.png"
-            alt="Economy logo"
-          >
-
-          <div class="plan-name">
-            ECONOMY
-          </div>
-
-        </div>
-
-
-        <div class="plan-body">
-
-          <img
-            class="benefits"
-            src="Economy benefits.png"
-            alt="Economy benefits"
-          >
-
-          <button
-            class="price-button"
-            onclick="choosePlan(
-              'Economy',
-              '2.5 gold',
-              'Economy logo.png',
-              '#e5bc35'
-            )"
-          >
-
-            <img
-              src="Economy button.png"
-              alt="Choose Economy"
-            >
-
-          </button>
-
-        </div>
-
-      </section>
-
-
-      <!-- PREMIUM -->
-
-      <section class="plan premium">
-
-        <div class="plan-header">
-
-          <img
-            class="plan-logo"
-            src="Premium logo.png"
-            alt="Premium logo"
-          >
-
-          <div class="plan-name">
-            PREMIUM
-          </div>
-
-        </div>
-
-
-        <div class="plan-body">
-
-          <img
-            class="benefits"
-            src="Premium benefits.png"
-            alt="Premium benefits"
-          >
-
-          <button
-            class="price-button"
-            onclick="choosePlan(
-              'Premium',
-              '5 gold',
-              'Premium logo.png',
-              '#e5bc35'
-            )"
-          >
-
-            <img
-              src="Premium button.png"
-              alt="Choose Premium"
-            >
-
-          </button>
-
-        </div>
-
-      </section>
-
-    </main>
-
-
-    <div class="payment-note">
-      * Every 2 real-life days
-    </div>
-
+  <div class="payment-note">
+    * Every 2 real-life days
   </div>
-
-
-  <!-- =====================================================
-       ADMIN LOGIN BUTTON
-       ===================================================== -->
 
   <div class="admin-area">
 
-    <button
-      class="admin-button"
-      onclick="openAdminLogin()"
-    >
+    <button class="admin-button" onclick="openAdminLogin()">
       ⚙ Admin login
     </button>
 
   </div>
 
+  <!-- PLAYER POPUP -->
 
-  <!-- =====================================================
-       PLAYER SUBSCRIPTION POPUP
-       ===================================================== -->
-
-  <div
-    class="overlay"
-    id="playerOverlay"
-  >
+  <div class="overlay" id="playerOverlay">
 
     <div class="plan-popup">
 
-      <div
-        class="popup-accent"
-        id="popupAccent"
-      ></div>
-
+      <div class="popup-accent" id="popupAccent"></div>
 
       <div class="popup-content">
-
 
         <div id="playerFormView">
 
           <div class="popup-plan-header">
 
-            <img
-              class="popup-plan-logo"
-              id="popupLogo"
-              src=""
-              alt=""
-            >
+            <img class="popup-plan-logo" id="popupLogo" src="" alt="">
 
             <div>
 
@@ -1347,37 +824,23 @@
                 You are choosing
               </div>
 
-              <div
-                class="popup-plan-name"
-                id="popupPlanName"
-              ></div>
+              <div class="popup-plan-name" id="popupPlanName"></div>
 
-              <div
-                class="popup-price"
-                id="popupPrice"
-              ></div>
+              <div class="popup-price" id="popupPrice"></div>
 
             </div>
 
           </div>
 
-
           <div class="popup-divider"></div>
 
-
-          <label
-            class="minecraft-label"
-            for="minecraftName"
-          >
+          <label class="minecraft-label" for="minecraftName">
             Minecraft username
           </label>
 
-
           <div class="minecraft-input-wrap">
 
-            <div class="player-icon">
-              👤
-            </div>
+            <div>👤</div>
 
             <input
               class="minecraft-input"
@@ -1389,40 +852,22 @@
 
           </div>
 
-
           <div class="popup-help">
             Enter the name you use in our Minecraft world.
           </div>
 
-
           <div class="popup-summary">
 
             <div>
-
-              <div class="summary-label">
-                Subscription
-              </div>
-
-              <div
-                class="summary-value"
-                id="summaryPlan"
-              ></div>
-
+              <div class="summary-label">Subscription</div>
+              <div class="summary-value" id="summaryPlan"></div>
             </div>
 
-            <div
-              class="summary-cycle"
-              id="summaryCycle"
-            ></div>
+            <div class="summary-cycle" id="summaryCycle"></div>
 
           </div>
 
-
-          <div
-            class="error-box"
-            id="playerError"
-          ></div>
-
+          <div class="error-box" id="playerError"></div>
 
           <div class="popup-buttons">
 
@@ -1445,26 +890,13 @@
 
         </div>
 
+        <div class="success-view" id="successView">
 
-        <!-- SUCCESS -->
+          <div class="success-circle">✓</div>
 
-        <div
-          class="success-view"
-          id="successView"
-        >
+          <h2>You're subscribed!</h2>
 
-          <div class="success-circle">
-            ✓
-          </div>
-
-          <h2>
-            You're subscribed!
-          </h2>
-
-          <div
-            class="success-message"
-            id="successText"
-          ></div>
+          <div class="success-message" id="successText"></div>
 
           <button
             class="popup-button confirm-button done-button"
@@ -1481,21 +913,13 @@
 
   </div>
 
+  <!-- ADMIN POPUP -->
 
-  <!-- =====================================================
-       ADMIN LOGIN POPUP
-       ===================================================== -->
-
-  <div
-    class="overlay"
-    id="adminOverlay"
-  >
+  <div class="overlay" id="adminOverlay">
 
     <div class="admin-popup">
 
-      <h2>
-        ⚙ Admin Login
-      </h2>
+      <h2>⚙ Admin Login</h2>
 
       <div class="admin-popup-subtitle">
         Business subscription management
@@ -1511,10 +935,7 @@
         autocomplete="off"
       >
 
-      <div
-        class="error-box"
-        id="adminError"
-      ></div>
+      <div class="error-box" id="adminError"></div>
 
       <div class="popup-buttons">
 
@@ -1539,32 +960,18 @@
 
   </div>
 
+  <!-- DASHBOARD -->
 
-  <!-- =====================================================
-       ADMIN DASHBOARD
-       ===================================================== -->
-
-  <div
-    class="dashboard-overlay"
-    id="dashboardOverlay"
-  >
+  <div class="dashboard-overlay" id="dashboardOverlay">
 
     <div class="dashboard">
 
       <div class="dashboard-header">
 
         <div>
-
-          <h2 class="dashboard-title">
-            Business Subscriptions
-          </h2>
-
-          <div class="dashboard-subtitle">
-            Admin dashboard
-          </div>
-
+          <h2 class="dashboard-title">Business Subscriptions</h2>
+          <div class="dashboard-subtitle">Admin dashboard</div>
         </div>
-
 
         <div class="dashboard-header-buttons">
 
@@ -1586,109 +993,43 @@
 
       </div>
 
-
-      <!-- STATS -->
-
       <div class="stats">
 
         <div class="stat-card">
-
-          <div
-            class="stat-number"
-            id="statTotal"
-          >
-            0
-          </div>
-
-          <div class="stat-label">
-            Subscribers
-          </div>
-
+          <div class="stat-number" id="statTotal">0</div>
+          <div class="stat-label">Subscribers</div>
         </div>
 
-
         <div class="stat-card">
-
-          <div
-            class="stat-number"
-            id="statDue"
-          >
-            0
-          </div>
-
-          <div class="stat-label">
-            Due today
-          </div>
-
+          <div class="stat-number" id="statDue">0</div>
+          <div class="stat-label">Due today</div>
         </div>
 
-
         <div class="stat-card">
-
-          <div
-            class="stat-number"
-            id="statOverdue"
-          >
-            0
-          </div>
-
-          <div class="stat-label">
-            Overdue
-          </div>
-
+          <div class="stat-number" id="statOverdue">0</div>
+          <div class="stat-label">Overdue</div>
         </div>
 
-
         <div class="stat-card">
-
-          <div
-            class="stat-number"
-            id="statPremium"
-          >
-            0
-          </div>
-
-          <div class="stat-label">
-            Premium
-          </div>
-
+          <div class="stat-number" id="statPremium">0</div>
+          <div class="stat-label">Premium</div>
         </div>
 
       </div>
 
-
-      <!-- SUBSCRIBERS -->
-
-      <div
-        class="subscriber-list"
-        id="subscriberList"
-      >
-
-        <div class="loading">
-          Loading subscribers...
-        </div>
-
+      <div class="subscriber-list" id="subscriberList">
+        <div class="loading">Loading subscribers...</div>
       </div>
 
     </div>
 
   </div>
 
-
-  <!-- =====================================================
-       FIREBASE + WEBSITE CODE
-       ===================================================== -->
-
   <script type="module">
-
-    /*
-      FIREBASE
-    */
 
     import {
       initializeApp
     } from "https://www.gstatic.com/firebasejs/12.18.0/firebase-app.js";
-
 
     import {
       getFirestore,
@@ -1701,207 +1042,84 @@
       Timestamp
     } from "https://www.gstatic.com/firebasejs/12.18.0/firebase-firestore.js";
 
-
     import {
       getAuth,
       signInWithEmailAndPassword,
-      signOut,
-      onAuthStateChanged
+      signOut
     } from "https://www.gstatic.com/firebasejs/12.18.0/firebase-auth.js";
 
 
-    /*
-      Your Firebase project.
-    */
-
     const firebaseConfig = {
-
-      apiKey:
-        "AIzaSyCo01Guq0UiYUUWVTozcarLVeD8p5lJmu8",
-
-      authDomain:
-        "business-subscriptions.firebaseapp.com",
-
-      projectId:
-        "business-subscriptions",
-
-      storageBucket:
-        "business-subscriptions.firebasestorage.app",
-
-      messagingSenderId:
-        "250634383067",
-
-      appId:
-        "1:250634383067:web:d36d17eb3a0adb4bb026fe"
-
+      apiKey: "AIzaSyCo01Guq0UiYUUWVTozcarLVeD8p5lJmu8",
+      authDomain: "business-subscriptions.firebaseapp.com",
+      projectId: "business-subscriptions",
+      storageBucket: "business-subscriptions.firebasestorage.app",
+      messagingSenderId: "250634383067",
+      appId: "1:250634383067:web:d36d17eb3a0adb4bb026fe"
     };
 
 
-    const app =
-      initializeApp(firebaseConfig);
+    const app = initializeApp(firebaseConfig);
 
+    const db = getFirestore(app);
 
-    const db =
-      getFirestore(app);
-
-
-    const auth =
-      getAuth(app);
-
-
-    /*
-      This isn't a secret.
-
-      The PASSWORD stays in Firebase and is never
-      written inside the website.
-    */
+    const auth = getAuth(app);
 
     const ADMIN_EMAIL =
       "admin@business-subscriptions.local";
 
 
-    /*
-      Selected plan.
-    */
-
     let selectedPlan = "";
-
     let selectedPrice = "";
 
-    let selectedLogo = "";
-
-    let selectedColor = "";
-
-
-    /*
-      =====================================================
-      OPEN PLAN
-      =====================================================
-    */
 
     window.choosePlan =
-      function (
-        plan,
-        price,
-        logo,
-        color
-      ) {
+      function(plan, price, logo, color) {
 
         selectedPlan = plan;
-
         selectedPrice = price;
 
-        selectedLogo = logo;
+        document.getElementById("popupPlanName").textContent = plan;
 
-        selectedColor = color;
+        document.getElementById("popupPrice").textContent = price;
 
+        document.getElementById("summaryPlan").textContent = plan;
 
-        document
-          .getElementById("popupPlanName")
-          .textContent =
-          plan;
+        document.getElementById("popupLogo").src = logo;
 
+        document.getElementById("popupAccent").style.background = color;
 
-        document
-          .getElementById("popupPrice")
-          .textContent =
-          price;
-
-
-        document
-          .getElementById("summaryPlan")
-          .textContent =
-          plan;
-
-
-        document
-          .getElementById("popupLogo")
-          .src =
-          logo;
-
-
-        document
-          .getElementById("popupAccent")
-          .style.background =
-          color;
-
-
-        document
-          .getElementById("subscribeButton")
-          .style.background =
-          color;
-
+        document.getElementById("subscribeButton").style.background = color;
 
         if (plan === "Starter") {
 
-          document
-            .getElementById("summaryCycle")
-            .innerHTML =
+          document.getElementById("summaryCycle").innerHTML =
             "First <strong>7 days free</strong><br>" +
             "then every <strong>2 days</strong>";
 
-        }
+        } else {
 
-        else {
-
-          document
-            .getElementById("summaryCycle")
-            .innerHTML =
+          document.getElementById("summaryCycle").innerHTML =
             "Payment every<br>" +
             "<strong>2 real-life days</strong>";
 
         }
 
-
-        document
-          .getElementById("minecraftName")
-          .value =
-          "";
-
+        document.getElementById("minecraftName").value = "";
 
         hidePlayerError();
 
+        document.getElementById("playerFormView").style.display = "block";
 
-        document
-          .getElementById("playerFormView")
-          .style.display =
-          "block";
+        document.getElementById("successView").style.display = "none";
 
-
-        document
-          .getElementById("successView")
-          .style.display =
-          "none";
-
-
-        document
-          .getElementById("playerOverlay")
-          .classList
-          .add("visible");
-
-
-        setTimeout(
-          function () {
-
-            document
-              .getElementById("minecraftName")
-              .focus();
-
-          },
-          100
-        );
+        document.getElementById("playerOverlay").classList.add("visible");
 
       };
 
 
-    /*
-      =====================================================
-      CLOSE PLAYER WINDOW
-      =====================================================
-    */
-
     window.closePlayerPopup =
-      function () {
+      function() {
 
         document
           .getElementById("playerOverlay")
@@ -1911,14 +1129,8 @@
       };
 
 
-    /*
-      =====================================================
-      CREATE SUBSCRIPTION
-      =====================================================
-    */
-
     window.confirmPlan =
-      async function () {
+      async function() {
 
         const name =
           document
@@ -1926,11 +1138,9 @@
             .value
             .trim();
 
-
         hidePlayerError();
 
-
-        if (name.length === 0) {
+        if (!name) {
 
           showPlayerError(
             "Please enter your Minecraft username."
@@ -1940,242 +1150,87 @@
 
         }
 
-
-        if (name.length > 30) {
-
-          showPlayerError(
-            "That Minecraft name is too long."
-          );
-
-          return;
-
-        }
-
-
         const button =
-          document
-            .getElementById("subscribeButton");
+          document.getElementById("subscribeButton");
 
-
-        button.disabled =
-          true;
-
-
-        button.textContent =
-          "Saving...";
-
+        button.disabled = true;
+        button.textContent = "Saving...";
 
         try {
 
-          const now =
-            new Date();
+          const now = new Date();
 
+          const firstPayment = new Date(now);
 
-          const firstPayment =
-            new Date(now);
-
-
-          /*
-            Starter has the free 7-day trial.
-
-            Other plans start payment after 2 days.
-          */
-
-          if (selectedPlan === "Starter") {
-
-            firstPayment.setDate(
-              firstPayment.getDate() + 7
-            );
-
-          }
-
-          else {
-
-            firstPayment.setDate(
-              firstPayment.getDate() + 2
-            );
-
-          }
-
-
-          /*
-            Minecraft usernames are used as document IDs.
-
-            Lowercase means "Steve" and "steve"
-            count as the same subscriber.
-          */
+          firstPayment.setDate(
+            firstPayment.getDate() +
+            (selectedPlan === "Starter" ? 7 : 2)
+          );
 
           const documentId =
             name
               .toLowerCase()
               .replaceAll("/", "_");
 
-
-          const subscriptionRef =
+          await setDoc(
             doc(
               db,
               "subscriptions",
               documentId
-            );
-
-
-          await setDoc(
-            subscriptionRef,
+            ),
             {
-
-              name:
-                name,
-
-              plan:
-                selectedPlan,
-
-              price:
-                selectedPrice,
-
-              startedAt:
-                Timestamp.fromDate(now),
-
-              nextPaymentAt:
-                Timestamp.fromDate(firstPayment),
-
-              status:
-                "waiting"
-
+              name: name,
+              plan: selectedPlan,
+              price: selectedPrice,
+              startedAt: Timestamp.fromDate(now),
+              nextPaymentAt: Timestamp.fromDate(firstPayment),
+              status: "waiting"
             }
           );
 
+          document.getElementById("playerFormView").style.display = "none";
 
-          document
-            .getElementById("playerFormView")
-            .style.display =
-            "none";
+          document.getElementById("successView").style.display = "block";
 
-
-          document
-            .getElementById("successView")
-            .style.display =
-            "block";
-
-
-          let paymentMessage =
-            "";
-
-
-          if (selectedPlan === "Starter") {
-
-            paymentMessage =
-              "Your first 7 real-life days are free.";
-
-          }
-
-          else {
-
-            paymentMessage =
-              "Your first payment is due in 2 real-life days.";
-
-          }
-
-
-          document
-            .getElementById("successText")
-            .innerHTML =
+          document.getElementById("successText").innerHTML =
             "<strong>" +
             escapeHTML(name) +
             "</strong> chose <strong>" +
             escapeHTML(selectedPlan) +
-            "</strong>.<br><br>" +
-            paymentMessage;
+            "</strong>.";
 
-        }
+        } catch (error) {
 
-        catch (error) {
+          console.error(error);
 
-          console.error(
-            "Subscription error:",
-            error
+          showPlayerError(
+            error.code + "\n" + error.message
           );
 
+        } finally {
 
-          /*
-            Because normal players cannot UPDATE
-            an existing subscription, attempting to
-            register the same name again will fail.
-          */
-
-          if (
-            error.code === "permission-denied"
-          ) {
-
-            showPlayerError(
-              "That Minecraft name already has a subscription. Ask the admin if you want to change it."
-            );
-
-          }
-
-          else {
-
-            showPlayerError(
-              "The subscription couldn't be saved. Please try again."
-            );
-
-          }
-
-        }
-
-        finally {
-
-          button.disabled =
-            false;
-
-
-          button.textContent =
-            "Choose plan";
+          button.disabled = false;
+          button.textContent = "Choose plan";
 
         }
 
       };
 
 
-    /*
-      =====================================================
-      ADMIN LOGIN
-      =====================================================
-    */
-
     window.openAdminLogin =
-      function () {
+      function() {
 
         hideAdminError();
 
+        document.getElementById("adminPassword").value = "";
 
-        document
-          .getElementById("adminPassword")
-          .value =
-          "";
-
-
-        document
-          .getElementById("adminOverlay")
-          .classList
-          .add("visible");
-
-
-        setTimeout(
-          function () {
-
-            document
-              .getElementById("adminPassword")
-              .focus();
-
-          },
-          100
-        );
+        document.getElementById("adminOverlay").classList.add("visible");
 
       };
 
 
     window.closeAdminLogin =
-      function () {
+      function() {
 
         document
           .getElementById("adminOverlay")
@@ -2186,18 +1241,16 @@
 
 
     window.tryAdminLogin =
-      async function () {
+      async function() {
 
         hideAdminError();
-
 
         const password =
           document
             .getElementById("adminPassword")
             .value;
 
-
-        if (password.length === 0) {
+        if (!password) {
 
           showAdminError(
             "Enter the admin code."
@@ -2207,19 +1260,11 @@
 
         }
 
+        const button =
+          document.getElementById("adminLoginButton");
 
-        const loginButton =
-          document
-            .getElementById("adminLoginButton");
-
-
-        loginButton.disabled =
-          true;
-
-
-        loginButton.textContent =
-          "Logging in...";
-
+        button.disabled = true;
+        button.textContent = "Logging in...";
 
         try {
 
@@ -2229,78 +1274,32 @@
             password
           );
 
-
           closeAdminLogin();
-
 
           openDashboard();
 
-
           await loadSubscriptions();
 
-        }
+        } catch (error) {
 
-        catch (error) {
-
-          console.error(
-            "Login error:",
-            error
-          );
-
+          console.error("Firebase admin login error:", error);
 
           showAdminError(
-            "Wrong admin code."
+            "Code: " +
+            (error.code || "unknown") +
+            "\n\nMessage: " +
+            (error.message || String(error))
           );
 
-        }
+        } finally {
 
-        finally {
-
-          loginButton.disabled =
-            false;
-
-
-          loginButton.textContent =
-            "Login";
+          button.disabled = false;
+          button.textContent = "Login";
 
         }
 
       };
 
-
-    /*
-      =====================================================
-      ADMIN SESSION
-      =====================================================
-    */
-
-    onAuthStateChanged(
-      auth,
-      function (user) {
-
-        if (
-          user &&
-          user.email === ADMIN_EMAIL
-        ) {
-
-          /*
-            We don't automatically open the dashboard
-            on every website refresh.
-
-            But the login session remains available.
-          */
-
-        }
-
-      }
-    );
-
-
-    /*
-      =====================================================
-      OPEN DASHBOARD
-      =====================================================
-    */
 
     function openDashboard() {
 
@@ -2309,56 +1308,34 @@
         .classList
         .add("visible");
 
-
-      document.body.style.overflow =
-        "hidden";
+      document.body.style.overflow = "hidden";
 
     }
 
 
-    /*
-      =====================================================
-      LOG OUT
-      =====================================================
-    */
-
     window.logoutAdmin =
-      async function () {
+      async function() {
 
         await signOut(auth);
-
 
         document
           .getElementById("dashboardOverlay")
           .classList
           .remove("visible");
 
-
-        document.body.style.overflow =
-          "";
+        document.body.style.overflow = "";
 
       };
 
 
-    /*
-      =====================================================
-      LOAD SUBSCRIPTIONS
-      =====================================================
-    */
-
     window.loadSubscriptions =
-      async function () {
+      async function() {
 
         const list =
-          document
-            .getElementById("subscriberList");
-
+          document.getElementById("subscriberList");
 
         list.innerHTML =
-          '<div class="loading">' +
-          'Loading subscribers...' +
-          '</div>';
-
+          '<div class="loading">Loading subscribers...</div>';
 
         try {
 
@@ -2370,66 +1347,35 @@
               )
             );
 
+          const subscriptions = [];
 
-          const subscriptions =
-            [];
+          snapshot.forEach(function(docSnapshot) {
 
+            subscriptions.push({
+              id: docSnapshot.id,
+              ...docSnapshot.data()
+            });
 
-          snapshot.forEach(
-            function (documentSnapshot) {
+          });
 
-              subscriptions.push(
-                {
+          subscriptions.sort(function(a, b) {
 
-                  id:
-                    documentSnapshot.id,
+            return (
+              toDate(a.nextPaymentAt).getTime() -
+              toDate(b.nextPaymentAt).getTime()
+            );
 
-                  ...documentSnapshot.data()
+          });
 
-                }
-              );
+          renderSubscriptions(subscriptions);
 
-            }
-          );
-
-
-          /*
-            Sort earliest payments first.
-          */
-
-          subscriptions.sort(
-            function (a, b) {
-
-              return (
-                timestampMilliseconds(
-                  a.nextPaymentAt
-                ) -
-                timestampMilliseconds(
-                  b.nextPaymentAt
-                )
-              );
-
-            }
-          );
-
-
-          renderSubscriptions(
-            subscriptions
-          );
-
-        }
-
-        catch (error) {
-
-          console.error(
-            "Load error:",
-            error
-          );
-
+        } catch (error) {
 
           list.innerHTML =
             '<div class="empty-list">' +
-            'Could not load subscriptions.' +
+            escapeHTML(error.code || "Error") +
+            '<br><br>' +
+            escapeHTML(error.message || String(error)) +
             '</div>';
 
         }
@@ -2437,386 +1383,194 @@
       };
 
 
-    /*
-      =====================================================
-      RENDER SUBSCRIPTIONS
-      =====================================================
-    */
-
-    function renderSubscriptions(
-      subscriptions
-    ) {
+    function renderSubscriptions(subscriptions) {
 
       const list =
-        document
-          .getElementById("subscriberList");
+        document.getElementById("subscriberList");
 
+      list.innerHTML = "";
 
-      if (
-        subscriptions.length === 0
-      ) {
+      if (subscriptions.length === 0) {
 
         list.innerHTML =
-          '<div class="empty-list">' +
-          '<strong>No subscribers yet.</strong>' +
-          '<br><br>' +
-          'When someone chooses a plan, they will appear here.' +
-          '</div>';
+          '<div class="empty-list">No subscribers yet.</div>';
 
-
-        updateStats(
-          subscriptions
-        );
-
+        updateStats(subscriptions);
 
         return;
 
       }
 
-
-      list.innerHTML =
-        "";
-
-
-      for (
-        const subscription
-        of subscriptions
-      ) {
+      for (const subscription of subscriptions) {
 
         const paymentInfo =
           getPaymentStatus(
             subscription.nextPaymentAt
           );
 
-
         const card =
-          document.createElement(
-            "div"
-          );
+          document.createElement("div");
 
-
-        card.className =
-          "subscriber-card";
-
+        card.className = "subscriber-card";
 
         const planClass =
           "plan-" +
-          String(
-            subscription.plan
-          ).toLowerCase();
+          String(subscription.plan).toLowerCase();
 
+        card.innerHTML = `
 
-        card.innerHTML =
-          `
-
-            <div>
-
-              <div class="info-label">
-                Player
-              </div>
-
-              <div class="player-name">
-                ${escapeHTML(subscription.name)}
-              </div>
-
+          <div>
+            <div class="info-label">Player</div>
+            <div class="player-name">
+              ${escapeHTML(subscription.name)}
             </div>
+          </div>
 
+          <div>
+            <div class="info-label">Plan</div>
+            <span class="plan-pill ${planClass}">
+              ${escapeHTML(subscription.plan)}
+            </span>
+          </div>
 
-            <div>
-
-              <div class="info-label">
-                Plan
-              </div>
-
-              <span class="plan-pill ${planClass}">
-                ${escapeHTML(subscription.plan)}
-              </span>
-
+          <div>
+            <div class="info-label">Next payment</div>
+            <div class="info-value">
+              ${formatTimestamp(subscription.nextPaymentAt)}
             </div>
+          </div>
 
+          <div>
+            <div class="info-label">Status</div>
+            <span class="status ${paymentInfo.className}">
+              ${paymentInfo.label}
+            </span>
+          </div>
 
-            <div>
+          <div class="subscriber-actions">
 
-              <div class="info-label">
-                Next payment
-              </div>
+            <button
+              class="paid-button"
+              data-id="${escapeHTML(subscription.id)}"
+            >
+              ✓ Mark paid
+            </button>
 
-              <div class="info-value">
-                ${formatTimestamp(subscription.nextPaymentAt)}
-              </div>
+            <button
+              class="cancel-sub-button"
+              data-id="${escapeHTML(subscription.id)}"
+              data-name="${escapeHTML(subscription.name)}"
+            >
+              Cancel
+            </button>
 
-            </div>
+          </div>
+        `;
 
-
-            <div>
-
-              <div class="info-label">
-                Status
-              </div>
-
-              <span class="status ${paymentInfo.className}">
-                ${paymentInfo.label}
-              </span>
-
-            </div>
-
-
-            <div class="subscriber-actions">
-
-              <button
-                class="paid-button"
-                data-id="${escapeHTML(subscription.id)}"
-              >
-                ✓ Mark paid
-              </button>
-
-              <button
-                class="cancel-sub-button"
-                data-id="${escapeHTML(subscription.id)}"
-                data-name="${escapeHTML(subscription.name)}"
-              >
-                Cancel
-              </button>
-
-            </div>
-
-          `;
-
-
-        list.appendChild(
-          card
-        );
+        list.appendChild(card);
 
       }
 
-
-      /*
-        Mark-paid button listeners.
-      */
-
       document
-        .querySelectorAll(
-          ".paid-button"
-        )
-        .forEach(
-          function (button) {
+        .querySelectorAll(".paid-button")
+        .forEach(function(button) {
 
-            button.addEventListener(
-              "click",
-              async function () {
+          button.addEventListener("click", async function() {
 
-                await markPaid(
-                  button.dataset.id
-                );
-
-              }
+            await markPaid(
+              button.dataset.id
             );
 
-          }
-        );
+          });
 
-
-      /*
-        Cancel button listeners.
-      */
+        });
 
       document
-        .querySelectorAll(
-          ".cancel-sub-button"
-        )
-        .forEach(
-          function (button) {
+        .querySelectorAll(".cancel-sub-button")
+        .forEach(function(button) {
 
-            button.addEventListener(
-              "click",
-              async function () {
+          button.addEventListener("click", async function() {
 
-                await cancelSubscription(
-                  button.dataset.id,
-                  button.dataset.name
-                );
-
-              }
+            await cancelSubscription(
+              button.dataset.id,
+              button.dataset.name
             );
 
-          }
-        );
+          });
+
+        });
+
+      updateStats(subscriptions);
+
+    }
 
 
-      updateStats(
-        subscriptions
+    async function markPaid(id) {
+
+      const nextPayment =
+        new Date();
+
+      nextPayment.setDate(
+        nextPayment.getDate() + 2
       );
 
-    }
+      await updateDoc(
+        doc(
+          db,
+          "subscriptions",
+          id
+        ),
+        {
+          nextPaymentAt:
+            Timestamp.fromDate(nextPayment),
 
+          lastPaidAt:
+            Timestamp.fromDate(new Date()),
 
-    /*
-      =====================================================
-      MARK PAID
-      =====================================================
-    */
+          status:
+            "waiting"
+        }
+      );
 
-    async function markPaid(
-      id
-    ) {
-
-      try {
-
-        const subscriptionRef =
-          doc(
-            db,
-            "subscriptions",
-            id
-          );
-
-
-        /*
-          Payment always moves forward
-          two days from NOW.
-
-          This means if someone is overdue and pays today,
-          they get two fresh days.
-        */
-
-        const nextPayment =
-          new Date();
-
-
-        nextPayment.setDate(
-          nextPayment.getDate() + 2
-        );
-
-
-        await updateDoc(
-          subscriptionRef,
-          {
-
-            nextPaymentAt:
-              Timestamp.fromDate(
-                nextPayment
-              ),
-
-            lastPaidAt:
-              Timestamp.fromDate(
-                new Date()
-              ),
-
-            status:
-              "waiting"
-
-          }
-        );
-
-
-        await loadSubscriptions();
-
-      }
-
-      catch (error) {
-
-        console.error(
-          "Mark paid error:",
-          error
-        );
-
-
-        alert(
-          "Could not mark this payment as paid."
-        );
-
-      }
+      await loadSubscriptions();
 
     }
 
 
-    /*
-      =====================================================
-      CANCEL SUBSCRIPTION
-      =====================================================
-    */
+    async function cancelSubscription(id, name) {
 
-    async function cancelSubscription(
-      id,
-      name
-    ) {
-
-      const confirmed =
-        confirm(
+      if (
+        !confirm(
           "Cancel " +
           name +
           "'s subscription?"
-        );
-
-
-      if (!confirmed) {
+        )
+      ) {
 
         return;
 
       }
 
+      await deleteDoc(
+        doc(
+          db,
+          "subscriptions",
+          id
+        )
+      );
 
-      try {
-
-        await deleteDoc(
-          doc(
-            db,
-            "subscriptions",
-            id
-          )
-        );
-
-
-        await loadSubscriptions();
-
-      }
-
-      catch (error) {
-
-        console.error(
-          "Cancel error:",
-          error
-        );
-
-
-        alert(
-          "Could not cancel this subscription."
-        );
-
-      }
+      await loadSubscriptions();
 
     }
 
 
-    /*
-      =====================================================
-      PAYMENT STATUS
-      =====================================================
-    */
-
-    function getPaymentStatus(
-      timestamp
-    ) {
+    function getPaymentStatus(timestamp) {
 
       const paymentDate =
         toDate(timestamp);
 
-
-      if (!paymentDate) {
-
-        return {
-          label:
-            "Unknown",
-
-          className:
-            "status-due"
-        };
-
-      }
-
-
       const now =
         new Date();
-
 
       const today =
         new Date(
@@ -2825,7 +1579,6 @@
           now.getDate()
         );
 
-
       const dueDay =
         new Date(
           paymentDate.getFullYear(),
@@ -2833,24 +1586,14 @@
           paymentDate.getDate()
         );
 
-
-      if (
-        dueDay.getTime() <
-        today.getTime()
-      ) {
+      if (dueDay < today) {
 
         return {
-
-          label:
-            "🔴 Overdue",
-
-          className:
-            "status-overdue"
-
+          label: "🔴 Overdue",
+          className: "status-overdue"
         };
 
       }
-
 
       if (
         dueDay.getTime() ===
@@ -2858,63 +1601,32 @@
       ) {
 
         return {
-
-          label:
-            "🟡 Due today",
-
-          className:
-            "status-due"
-
+          label: "🟡 Due today",
+          className: "status-due"
         };
 
       }
 
-
       return {
-
-        label:
-          "🟢 Upcoming",
-
-        className:
-          "status-upcoming"
-
+        label: "🟢 Upcoming",
+        className: "status-upcoming"
       };
 
     }
 
 
-    /*
-      =====================================================
-      STATS
-      =====================================================
-    */
+    function updateStats(subscriptions) {
 
-    function updateStats(
-      subscriptions
-    ) {
+      let due = 0;
+      let overdue = 0;
+      let premium = 0;
 
-      let due =
-        0;
-
-
-      let overdue =
-        0;
-
-
-      let premium =
-        0;
-
-
-      for (
-        const subscription
-        of subscriptions
-      ) {
+      for (const subscription of subscriptions) {
 
         const status =
           getPaymentStatus(
             subscription.nextPaymentAt
           );
-
 
         if (
           status.className ===
@@ -2925,7 +1637,6 @@
 
         }
 
-
         if (
           status.className ===
           "status-overdue"
@@ -2934,7 +1645,6 @@
           overdue++;
 
         }
-
 
         if (
           subscription.plan ===
@@ -2947,152 +1657,60 @@
 
       }
 
-
-      document
-        .getElementById("statTotal")
-        .textContent =
+      document.getElementById("statTotal").textContent =
         subscriptions.length;
 
-
-      document
-        .getElementById("statDue")
-        .textContent =
+      document.getElementById("statDue").textContent =
         due;
 
-
-      document
-        .getElementById("statOverdue")
-        .textContent =
+      document.getElementById("statOverdue").textContent =
         overdue;
 
-
-      document
-        .getElementById("statPremium")
-        .textContent =
+      document.getElementById("statPremium").textContent =
         premium;
 
     }
 
 
-    /*
-      =====================================================
-      DATES
-      =====================================================
-    */
-
-    function toDate(
-      timestamp
-    ) {
-
-      if (!timestamp) {
-
-        return null;
-
-      }
-
+    function toDate(timestamp) {
 
       if (
-        typeof timestamp.toDate ===
-        "function"
+        timestamp &&
+        typeof timestamp.toDate === "function"
       ) {
 
         return timestamp.toDate();
 
       }
 
+      return new Date();
 
-      if (
-        timestamp.seconds
-      ) {
+    }
 
-        return new Date(
-          timestamp.seconds * 1000
+
+    function formatTimestamp(timestamp) {
+
+      return toDate(timestamp)
+        .toLocaleDateString(
+          undefined,
+          {
+            day: "numeric",
+            month: "short",
+            year: "numeric"
+          }
         );
 
-      }
-
-
-      return null;
-
     }
 
 
-    function timestampMilliseconds(
-      timestamp
-    ) {
-
-      const date =
-        toDate(timestamp);
-
-
-      if (!date) {
-
-        return 0;
-
-      }
-
-
-      return date.getTime();
-
-    }
-
-
-    function formatTimestamp(
-      timestamp
-    ) {
-
-      const date =
-        toDate(timestamp);
-
-
-      if (!date) {
-
-        return "Unknown";
-
-      }
-
-
-      return date.toLocaleDateString(
-        undefined,
-        {
-
-          day:
-            "numeric",
-
-          month:
-            "short",
-
-          year:
-            "numeric"
-
-        }
-      );
-
-    }
-
-
-    /*
-      =====================================================
-      ERROR BOXES
-      =====================================================
-    */
-
-    function showPlayerError(
-      message
-    ) {
+    function showPlayerError(message) {
 
       const element =
-        document
-          .getElementById("playerError");
+        document.getElementById("playerError");
 
+      element.textContent = message;
 
-      element.textContent =
-        message;
-
-
-      element
-        .classList
-        .add("visible");
+      element.classList.add("visible");
 
     }
 
@@ -3107,22 +1725,14 @@
     }
 
 
-    function showAdminError(
-      message
-    ) {
+    function showAdminError(message) {
 
       const element =
-        document
-          .getElementById("adminError");
+        document.getElementById("adminError");
 
+      element.textContent = message;
 
-      element.textContent =
-        message;
-
-
-      element
-        .classList
-        .add("visible");
+      element.classList.add("visible");
 
     }
 
@@ -3137,130 +1747,17 @@
     }
 
 
-    /*
-      =====================================================
-      SAFE HTML
-      =====================================================
-    */
-
-    function escapeHTML(
-      value
-    ) {
+    function escapeHTML(value) {
 
       return String(value)
 
-        .replaceAll(
-          "&",
-          "&amp;"
-        )
-
-        .replaceAll(
-          "<",
-          "&lt;"
-        )
-
-        .replaceAll(
-          ">",
-          "&gt;"
-        )
-
-        .replaceAll(
-          '"',
-          "&quot;"
-        )
-
-        .replaceAll(
-          "'",
-          "&#039;"
-        );
+        .replaceAll("&", "&amp;")
+        .replaceAll("<", "&lt;")
+        .replaceAll(">", "&gt;")
+        .replaceAll('"', "&quot;")
+        .replaceAll("'", "&#039;");
 
     }
-
-
-    /*
-      =====================================================
-      CLICK OUTSIDE POPUPS
-      =====================================================
-    */
-
-    document
-      .getElementById("playerOverlay")
-      .addEventListener(
-        "click",
-        function (event) {
-
-          if (
-            event.target === this
-          ) {
-
-            closePlayerPopup();
-
-          }
-
-        }
-      );
-
-
-    document
-      .getElementById("adminOverlay")
-      .addEventListener(
-        "click",
-        function (event) {
-
-          if (
-            event.target === this
-          ) {
-
-            closeAdminLogin();
-
-          }
-
-        }
-      );
-
-
-    /*
-      =====================================================
-      ENTER KEY
-      =====================================================
-    */
-
-    document
-      .getElementById("minecraftName")
-      .addEventListener(
-        "keydown",
-        function (event) {
-
-          if (
-            event.key ===
-            "Enter"
-          ) {
-
-            confirmPlan();
-
-          }
-
-        }
-      );
-
-
-    document
-      .getElementById("adminPassword")
-      .addEventListener(
-        "keydown",
-        function (event) {
-
-          if (
-            event.key ===
-            "Enter"
-          ) {
-
-            tryAdminLogin();
-
-          }
-
-        }
-      );
 
   </script>
 
