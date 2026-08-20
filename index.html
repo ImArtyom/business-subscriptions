@@ -13,15 +13,24 @@
 
     :root {
       --purple: #6a2383;
+      --purple-light: #8d3ba4;
       --text: #151515;
+      --muted: #666666;
+      --green: #579b3d;
+      --gold: #e5bc35;
+      --danger: #c83d3d;
+      --warning: #c78312;
     }
 
     body {
       margin: 0;
       min-height: 100vh;
+
       font-family: Arial, Helvetica, sans-serif;
+
       background: #ffffff;
       color: var(--text);
+
       overflow-x: hidden;
     }
 
@@ -30,15 +39,21 @@
       font: inherit;
     }
 
+    button {
+      -webkit-tap-highlight-color: transparent;
+    }
+
     /* =====================================================
-       TITLE
+       MAIN TITLE
        ===================================================== */
 
     .page-title {
       text-align: center;
+
       font-size: clamp(36px, 4.5vw, 70px);
       font-weight: 900;
       letter-spacing: 4px;
+
       margin: 42px 20px 6px;
 
       opacity: 0;
@@ -49,11 +64,14 @@
 
     .subtitle {
       text-align: center;
+
       color: #666;
       font-size: 18px;
+
       margin-bottom: 32px;
 
       opacity: 0;
+
       animation: fadeIn 0.8s ease 0.45s forwards;
     }
 
@@ -71,6 +89,7 @@
 
       display: grid;
       grid-template-columns: repeat(3, 1fr);
+
       gap: 24px;
 
       align-items: start;
@@ -91,6 +110,7 @@
       align-items: center;
 
       gap: 14px;
+
       margin-bottom: 12px;
 
       opacity: 0;
@@ -100,12 +120,14 @@
     .plan-logo {
       width: 82px;
       height: 82px;
+
       object-fit: contain;
     }
 
     .plan-name {
       font-size: clamp(31px, 2.8vw, 50px);
       font-weight: 900;
+
       letter-spacing: 2px;
     }
 
@@ -122,11 +144,12 @@
     }
 
     /* =====================================================
-       PLAN FRAME
+       PLAN FRAMES
        ===================================================== */
 
     .plan-body {
       position: relative;
+
       width: 100%;
 
       opacity: 0;
@@ -152,28 +175,24 @@
 
     /* =====================================================
        PRICE BUTTONS
+
+       Positioned in the middle of the empty section.
        ===================================================== */
 
     .price-button {
       position: absolute;
 
       left: 14%;
-      width: 72%;
-
-      /*
-        Your Canva benefits images have a large empty section
-        at the bottom.
-
-        This places the button in the MIDDLE of that area,
-        instead of touching the top dividing line.
-      */
       bottom: 3.4%;
+
+      width: 72%;
 
       border: 0;
       padding: 0;
       margin: 0;
 
       background: transparent;
+
       cursor: pointer;
 
       transition:
@@ -204,6 +223,7 @@
       margin: 17px auto 0;
 
       color: #555;
+
       font-size: 17px;
       font-weight: 600;
 
@@ -213,11 +233,12 @@
     }
 
     /* =====================================================
-       ADMIN
+       ADMIN LOGIN BUTTON
        ===================================================== */
 
     .admin-area {
       text-align: center;
+
       margin-top: 28px;
       margin-bottom: 60px;
     }
@@ -226,7 +247,7 @@
       border: 2px solid #777;
       border-radius: 12px;
 
-      background: #fff;
+      background: #ffffff;
       color: #444;
 
       padding: 11px 22px;
@@ -235,6 +256,15 @@
       font-weight: 700;
 
       cursor: pointer;
+
+      transition:
+        transform 0.15s ease,
+        background 0.15s ease;
+    }
+
+    .admin-button:hover {
+      background: #f2f2f2;
+      transform: scale(1.04);
     }
 
     /* =====================================================
@@ -252,6 +282,7 @@
       padding: 22px;
 
       background: rgba(20, 10, 25, 0.65);
+
       backdrop-filter: blur(5px);
 
       z-index: 1000;
@@ -268,7 +299,8 @@
     .plan-popup {
       width: min(500px, 100%);
 
-      background: #fff;
+      background: #ffffff;
+
       border-radius: 24px;
 
       overflow: hidden;
@@ -281,6 +313,7 @@
 
     .popup-accent {
       height: 9px;
+
       background: var(--purple);
     }
 
@@ -300,7 +333,9 @@
     .popup-plan-logo {
       width: 78px;
       height: 78px;
+
       object-fit: contain;
+
       flex-shrink: 0;
     }
 
@@ -319,6 +354,7 @@
     .popup-plan-name {
       font-size: 34px;
       font-weight: 900;
+
       line-height: 1;
     }
 
@@ -358,6 +394,10 @@
 
       border: 2px solid #d2d2d2;
       border-radius: 13px;
+
+      transition:
+        border 0.15s ease,
+        box-shadow 0.15s ease;
     }
 
     .minecraft-input-wrap:focus-within {
@@ -390,6 +430,7 @@
       color: #888;
 
       font-size: 13px;
+
       line-height: 1.4;
     }
 
@@ -449,6 +490,24 @@
       font-weight: 800;
 
       cursor: pointer;
+
+      transition:
+        transform 0.14s ease,
+        filter 0.14s ease;
+    }
+
+    .popup-button:hover {
+      transform: translateY(-1px);
+    }
+
+    .popup-button:active {
+      transform: translateY(1px);
+    }
+
+    .popup-button:disabled {
+      opacity: 0.55;
+      cursor: wait;
+      transform: none;
     }
 
     .cancel-button {
@@ -458,7 +517,7 @@
 
     .confirm-button {
       background: var(--purple);
-      color: #fff;
+      color: #ffffff;
     }
 
     /* =====================================================
@@ -467,7 +526,9 @@
 
     .success-view {
       display: none;
+
       text-align: center;
+
       padding: 15px 0 5px;
     }
 
@@ -490,6 +551,7 @@
 
     .success-view h2 {
       margin: 0;
+
       font-size: 28px;
     }
 
@@ -497,6 +559,7 @@
       margin: 10px 0 23px;
 
       color: #666;
+
       line-height: 1.45;
     }
 
@@ -505,7 +568,33 @@
     }
 
     /* =====================================================
-       ADMIN POPUP
+       ERROR MESSAGE
+       ===================================================== */
+
+    .error-box {
+      display: none;
+
+      margin-top: 15px;
+
+      padding: 11px 13px;
+
+      border-radius: 10px;
+
+      background: #fdeaea;
+      color: #a12828;
+
+      font-size: 14px;
+      font-weight: 700;
+
+      line-height: 1.4;
+    }
+
+    .error-box.visible {
+      display: block;
+    }
+
+    /* =====================================================
+       ADMIN LOGIN POPUP
        ===================================================== */
 
     .admin-popup {
@@ -513,7 +602,7 @@
 
       padding: 28px;
 
-      background: #fff;
+      background: #ffffff;
       border-radius: 22px;
 
       box-shadow:
@@ -524,17 +613,21 @@
 
     .admin-popup h2 {
       margin: 0 0 5px;
+
       font-size: 29px;
     }
 
     .admin-popup-subtitle {
       color: #777;
+
       margin-bottom: 23px;
     }
 
     .admin-popup label {
       display: block;
+
       font-weight: 800;
+
       margin-bottom: 8px;
     }
 
@@ -543,7 +636,7 @@
 
       padding: 13px 14px;
 
-      border: 2px solid #ccc;
+      border: 2px solid #cccccc;
       border-radius: 12px;
 
       outline: 0;
@@ -555,6 +648,294 @@
 
     .admin-popup input:focus {
       border-color: var(--purple);
+    }
+
+    /* =====================================================
+       ADMIN DASHBOARD
+       ===================================================== */
+
+    .dashboard-overlay {
+      position: fixed;
+      inset: 0;
+
+      display: none;
+
+      background: #f6f6f6;
+
+      z-index: 2000;
+
+      overflow-y: auto;
+    }
+
+    .dashboard-overlay.visible {
+      display: block;
+    }
+
+    .dashboard {
+      width: min(1250px, 94%);
+
+      margin: 0 auto;
+
+      padding: 35px 0 70px;
+    }
+
+    .dashboard-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+
+      gap: 20px;
+
+      margin-bottom: 28px;
+    }
+
+    .dashboard-title {
+      margin: 0;
+
+      font-size: clamp(30px, 4vw, 48px);
+      font-weight: 900;
+    }
+
+    .dashboard-subtitle {
+      margin-top: 6px;
+
+      color: #777;
+    }
+
+    .dashboard-header-buttons {
+      display: flex;
+
+      gap: 9px;
+
+      flex-wrap: wrap;
+
+      justify-content: flex-end;
+    }
+
+    .small-button {
+      border: 0;
+      border-radius: 10px;
+
+      padding: 10px 15px;
+
+      font-weight: 800;
+
+      cursor: pointer;
+    }
+
+    .refresh-button {
+      background: #e9e9e9;
+      color: #333;
+    }
+
+    .logout-button {
+      background: #333;
+      color: #ffffff;
+    }
+
+    /* DASHBOARD STATS */
+
+    .stats {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+
+      gap: 14px;
+
+      margin-bottom: 24px;
+    }
+
+    .stat-card {
+      padding: 18px;
+
+      border-radius: 16px;
+
+      background: #ffffff;
+
+      box-shadow:
+        0 4px 18px rgba(0, 0, 0, 0.06);
+    }
+
+    .stat-number {
+      font-size: 30px;
+      font-weight: 900;
+    }
+
+    .stat-label {
+      margin-top: 3px;
+
+      color: #777;
+
+      font-size: 14px;
+      font-weight: 700;
+    }
+
+    /* SUBSCRIBER LIST */
+
+    .subscriber-list {
+      display: grid;
+
+      gap: 12px;
+    }
+
+    .subscriber-card {
+      display: grid;
+
+      grid-template-columns:
+        minmax(130px, 1.2fr)
+        minmax(110px, 0.8fr)
+        minmax(130px, 1fr)
+        minmax(120px, 0.8fr)
+        auto;
+
+      gap: 14px;
+      align-items: center;
+
+      padding: 17px 18px;
+
+      background: #ffffff;
+
+      border-radius: 16px;
+
+      box-shadow:
+        0 4px 18px rgba(0, 0, 0, 0.06);
+    }
+
+    .player-name {
+      font-size: 18px;
+      font-weight: 900;
+
+      overflow-wrap: anywhere;
+    }
+
+    .plan-pill {
+      display: inline-block;
+
+      width: fit-content;
+
+      padding: 6px 10px;
+
+      border-radius: 100px;
+
+      font-size: 13px;
+      font-weight: 900;
+    }
+
+    .plan-starter {
+      background: #e7f4df;
+      color: #3f7b28;
+    }
+
+    .plan-economy {
+      background: #fff5c9;
+      color: #8e6c00;
+    }
+
+    .plan-premium {
+      background: #fff0ad;
+      color: #755400;
+    }
+
+    .info-label {
+      color: #888;
+
+      font-size: 11px;
+      font-weight: 800;
+
+      text-transform: uppercase;
+
+      margin-bottom: 3px;
+    }
+
+    .info-value {
+      font-weight: 800;
+    }
+
+    /* PAYMENT STATUS */
+
+    .status {
+      display: inline-block;
+
+      width: fit-content;
+
+      padding: 6px 10px;
+
+      border-radius: 100px;
+
+      font-size: 13px;
+      font-weight: 900;
+    }
+
+    .status-upcoming {
+      background: #e7f3e4;
+      color: #3b762b;
+    }
+
+    .status-due {
+      background: #fff1c8;
+      color: #906000;
+    }
+
+    .status-overdue {
+      background: #fde1e1;
+      color: #a92d2d;
+    }
+
+    .subscriber-actions {
+      display: flex;
+
+      gap: 7px;
+
+      justify-content: flex-end;
+
+      flex-wrap: wrap;
+    }
+
+    .paid-button {
+      border: 0;
+      border-radius: 9px;
+
+      padding: 9px 12px;
+
+      background: #579b3d;
+      color: #ffffff;
+
+      font-weight: 800;
+
+      cursor: pointer;
+    }
+
+    .cancel-sub-button {
+      border: 0;
+      border-radius: 9px;
+
+      padding: 9px 12px;
+
+      background: #eeeeee;
+      color: #7a2424;
+
+      font-weight: 800;
+
+      cursor: pointer;
+    }
+
+    .empty-list {
+      padding: 45px 20px;
+
+      text-align: center;
+
+      background: #ffffff;
+
+      border-radius: 16px;
+
+      color: #777;
+    }
+
+    .loading {
+      padding: 45px 20px;
+
+      text-align: center;
+
+      color: #777;
     }
 
     /* =====================================================
@@ -623,12 +1004,18 @@
     @keyframes popupIn {
       from {
         opacity: 0;
-        transform: translateY(15px) scale(0.94);
+
+        transform:
+          translateY(15px)
+          scale(0.94);
       }
 
       to {
         opacity: 1;
-        transform: translateY(0) scale(1);
+
+        transform:
+          translateY(0)
+          scale(1);
       }
     }
 
@@ -648,6 +1035,19 @@
       .plan-logo {
         width: 68px;
         height: 68px;
+      }
+
+      .subscriber-card {
+        grid-template-columns:
+          1fr
+          1fr
+          1fr;
+      }
+
+      .subscriber-actions {
+        grid-column: span 3;
+
+        justify-content: flex-start;
       }
     }
 
@@ -672,6 +1072,7 @@
 
       .page-title {
         margin-top: 28px;
+
         font-size: 38px;
       }
 
@@ -685,15 +1086,39 @@
 
       .price-button {
         width: 72%;
+
         left: 14%;
         bottom: 3.4%;
       }
-    }
 
+      .dashboard-header {
+        flex-direction: column;
+      }
+
+      .dashboard-header-buttons {
+        justify-content: flex-start;
+      }
+
+      .stats {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .subscriber-card {
+        grid-template-columns: 1fr;
+      }
+
+      .subscriber-actions {
+        grid-column: auto;
+      }
+    }
   </style>
 </head>
 
 <body>
+
+  <!-- =====================================================
+       TITLE
+       ===================================================== -->
 
   <h1 class="page-title">
     BUSINESS SUBSCRIPTIONS
@@ -703,9 +1128,17 @@
     Choose a plan for your business
   </div>
 
+
+  <!-- =====================================================
+       PLANS
+       ===================================================== -->
+
   <div class="plans-area">
 
     <main class="plans">
+
+
+      <!-- STARTER -->
 
       <section class="plan starter">
 
@@ -722,6 +1155,7 @@
           </div>
 
         </div>
+
 
         <div class="plan-body">
 
@@ -752,6 +1186,9 @@
 
       </section>
 
+
+      <!-- ECONOMY -->
+
       <section class="plan economy">
 
         <div class="plan-header">
@@ -767,6 +1204,7 @@
           </div>
 
         </div>
+
 
         <div class="plan-body">
 
@@ -797,6 +1235,9 @@
 
       </section>
 
+
+      <!-- PREMIUM -->
+
       <section class="plan premium">
 
         <div class="plan-header">
@@ -812,6 +1253,7 @@
           </div>
 
         </div>
+
 
         <div class="plan-body">
 
@@ -844,11 +1286,17 @@
 
     </main>
 
+
     <div class="payment-note">
       * Every 2 real-life days
     </div>
 
   </div>
+
+
+  <!-- =====================================================
+       ADMIN LOGIN BUTTON
+       ===================================================== -->
 
   <div class="admin-area">
 
@@ -861,7 +1309,10 @@
 
   </div>
 
-  <!-- PLAYER POPUP -->
+
+  <!-- =====================================================
+       PLAYER SUBSCRIPTION POPUP
+       ===================================================== -->
 
   <div
     class="overlay"
@@ -875,7 +1326,9 @@
         id="popupAccent"
       ></div>
 
+
       <div class="popup-content">
+
 
         <div id="playerFormView">
 
@@ -908,7 +1361,9 @@
 
           </div>
 
+
           <div class="popup-divider"></div>
+
 
           <label
             class="minecraft-label"
@@ -916,6 +1371,7 @@
           >
             Minecraft username
           </label>
+
 
           <div class="minecraft-input-wrap">
 
@@ -933,9 +1389,11 @@
 
           </div>
 
+
           <div class="popup-help">
             Enter the name you use in our Minecraft world.
           </div>
+
 
           <div class="popup-summary">
 
@@ -952,12 +1410,19 @@
 
             </div>
 
-            <div class="summary-cycle">
-              Payment every<br>
-              <strong>2 real-life days</strong>
-            </div>
+            <div
+              class="summary-cycle"
+              id="summaryCycle"
+            ></div>
 
           </div>
+
+
+          <div
+            class="error-box"
+            id="playerError"
+          ></div>
+
 
           <div class="popup-buttons">
 
@@ -979,6 +1444,9 @@
           </div>
 
         </div>
+
+
+        <!-- SUCCESS -->
 
         <div
           class="success-view"
@@ -1013,7 +1481,10 @@
 
   </div>
 
-  <!-- ADMIN POPUP -->
+
+  <!-- =====================================================
+       ADMIN LOGIN POPUP
+       ===================================================== -->
 
   <div
     class="overlay"
@@ -1040,6 +1511,11 @@
         autocomplete="off"
       >
 
+      <div
+        class="error-box"
+        id="adminError"
+      ></div>
+
       <div class="popup-buttons">
 
         <button
@@ -1051,6 +1527,7 @@
 
         <button
           class="popup-button confirm-button"
+          id="adminLoginButton"
           onclick="tryAdminLogin()"
         >
           Login
@@ -1062,248 +1539,1724 @@
 
   </div>
 
-  <script>
+
+  <!-- =====================================================
+       ADMIN DASHBOARD
+       ===================================================== -->
+
+  <div
+    class="dashboard-overlay"
+    id="dashboardOverlay"
+  >
+
+    <div class="dashboard">
+
+      <div class="dashboard-header">
+
+        <div>
+
+          <h2 class="dashboard-title">
+            Business Subscriptions
+          </h2>
+
+          <div class="dashboard-subtitle">
+            Admin dashboard
+          </div>
+
+        </div>
+
+
+        <div class="dashboard-header-buttons">
+
+          <button
+            class="small-button refresh-button"
+            onclick="loadSubscriptions()"
+          >
+            ↻ Refresh
+          </button>
+
+          <button
+            class="small-button logout-button"
+            onclick="logoutAdmin()"
+          >
+            Log out
+          </button>
+
+        </div>
+
+      </div>
+
+
+      <!-- STATS -->
+
+      <div class="stats">
+
+        <div class="stat-card">
+
+          <div
+            class="stat-number"
+            id="statTotal"
+          >
+            0
+          </div>
+
+          <div class="stat-label">
+            Subscribers
+          </div>
+
+        </div>
+
+
+        <div class="stat-card">
+
+          <div
+            class="stat-number"
+            id="statDue"
+          >
+            0
+          </div>
+
+          <div class="stat-label">
+            Due today
+          </div>
+
+        </div>
+
+
+        <div class="stat-card">
+
+          <div
+            class="stat-number"
+            id="statOverdue"
+          >
+            0
+          </div>
+
+          <div class="stat-label">
+            Overdue
+          </div>
+
+        </div>
+
+
+        <div class="stat-card">
+
+          <div
+            class="stat-number"
+            id="statPremium"
+          >
+            0
+          </div>
+
+          <div class="stat-label">
+            Premium
+          </div>
+
+        </div>
+
+      </div>
+
+
+      <!-- SUBSCRIBERS -->
+
+      <div
+        class="subscriber-list"
+        id="subscriberList"
+      >
+
+        <div class="loading">
+          Loading subscribers...
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+
+  <!-- =====================================================
+       FIREBASE + WEBSITE CODE
+       ===================================================== -->
+
+  <script type="module">
+
+    /*
+      FIREBASE
+    */
+
+    import {
+      initializeApp
+    } from "https://www.gstatic.com/firebasejs/12.18.0/firebase-app.js";
+
+
+    import {
+      getFirestore,
+      doc,
+      setDoc,
+      collection,
+      getDocs,
+      updateDoc,
+      deleteDoc,
+      Timestamp
+    } from "https://www.gstatic.com/firebasejs/12.18.0/firebase-firestore.js";
+
+
+    import {
+      getAuth,
+      signInWithEmailAndPassword,
+      signOut,
+      onAuthStateChanged
+    } from "https://www.gstatic.com/firebasejs/12.18.0/firebase-auth.js";
+
+
+    /*
+      Your Firebase project.
+    */
+
+    const firebaseConfig = {
+
+      apiKey:
+        "AIzaSyCo01Guq0UiYUUWVTozcarLVeD8p5lJmu8",
+
+      authDomain:
+        "business-subscriptions.firebaseapp.com",
+
+      projectId:
+        "business-subscriptions",
+
+      storageBucket:
+        "business-subscriptions.firebasestorage.app",
+
+      messagingSenderId:
+        "250634383067",
+
+      appId:
+        "1:250634383067:web:d36d17eb3a0adb4bb026fe"
+
+    };
+
+
+    const app =
+      initializeApp(firebaseConfig);
+
+
+    const db =
+      getFirestore(app);
+
+
+    const auth =
+      getAuth(app);
+
+
+    /*
+      This isn't a secret.
+
+      The PASSWORD stays in Firebase and is never
+      written inside the website.
+    */
+
+    const ADMIN_EMAIL =
+      "admin@business-subscriptions.local";
+
+
+    /*
+      Selected plan.
+    */
 
     let selectedPlan = "";
+
     let selectedPrice = "";
+
     let selectedLogo = "";
+
     let selectedColor = "";
 
-    function choosePlan(
-      plan,
-      price,
-      logo,
-      color
-    ) {
 
-      selectedPlan = plan;
-      selectedPrice = price;
-      selectedLogo = logo;
-      selectedColor = color;
+    /*
+      =====================================================
+      OPEN PLAN
+      =====================================================
+    */
 
-      document
-        .getElementById("popupPlanName")
-        .textContent = plan;
+    window.choosePlan =
+      function (
+        plan,
+        price,
+        logo,
+        color
+      ) {
 
-      document
-        .getElementById("popupPrice")
-        .textContent = price;
+        selectedPlan = plan;
 
-      document
-        .getElementById("summaryPlan")
-        .textContent = plan;
+        selectedPrice = price;
 
-      document
-        .getElementById("popupLogo")
-        .src = logo;
+        selectedLogo = logo;
 
-      document
-        .getElementById("popupAccent")
-        .style.background = color;
+        selectedColor = color;
 
-      document
-        .getElementById("subscribeButton")
-        .style.background = color;
 
-      document
-        .getElementById("minecraftName")
-        .value = "";
+        document
+          .getElementById("popupPlanName")
+          .textContent =
+          plan;
 
-      document
-        .getElementById("playerFormView")
-        .style.display = "block";
 
-      document
-        .getElementById("successView")
-        .style.display = "none";
+        document
+          .getElementById("popupPrice")
+          .textContent =
+          price;
 
-      document
-        .getElementById("playerOverlay")
-        .classList
-        .add("visible");
 
-      setTimeout(function () {
+        document
+          .getElementById("summaryPlan")
+          .textContent =
+          plan;
+
+
+        document
+          .getElementById("popupLogo")
+          .src =
+          logo;
+
+
+        document
+          .getElementById("popupAccent")
+          .style.background =
+          color;
+
+
+        document
+          .getElementById("subscribeButton")
+          .style.background =
+          color;
+
+
+        if (plan === "Starter") {
+
+          document
+            .getElementById("summaryCycle")
+            .innerHTML =
+            "First <strong>7 days free</strong><br>" +
+            "then every <strong>2 days</strong>";
+
+        }
+
+        else {
+
+          document
+            .getElementById("summaryCycle")
+            .innerHTML =
+            "Payment every<br>" +
+            "<strong>2 real-life days</strong>";
+
+        }
+
 
         document
           .getElementById("minecraftName")
-          .focus();
+          .value =
+          "";
 
-      }, 120);
 
-    }
+        hidePlayerError();
 
-    function closePlayerPopup() {
 
-      document
-        .getElementById("playerOverlay")
-        .classList
-        .remove("visible");
-
-    }
-
-    function confirmPlan() {
-
-      const name =
         document
-          .getElementById("minecraftName")
-          .value
-          .trim();
+          .getElementById("playerFormView")
+          .style.display =
+          "block";
 
-      if (name.length === 0) {
 
-        alert(
-          "Please enter your Minecraft username."
+        document
+          .getElementById("successView")
+          .style.display =
+          "none";
+
+
+        document
+          .getElementById("playerOverlay")
+          .classList
+          .add("visible");
+
+
+        setTimeout(
+          function () {
+
+            document
+              .getElementById("minecraftName")
+              .focus();
+
+          },
+          100
         );
 
-        return;
-
-      }
-
-      const subscription = {
-        name: name,
-        plan: selectedPlan,
-        price: selectedPrice,
-        started: new Date().toISOString()
       };
 
-      localStorage.setItem(
-        "minecraftSubscription",
-        JSON.stringify(subscription)
-      );
+
+    /*
+      =====================================================
+      CLOSE PLAYER WINDOW
+      =====================================================
+    */
+
+    window.closePlayerPopup =
+      function () {
+
+        document
+          .getElementById("playerOverlay")
+          .classList
+          .remove("visible");
+
+      };
+
+
+    /*
+      =====================================================
+      CREATE SUBSCRIPTION
+      =====================================================
+    */
+
+    window.confirmPlan =
+      async function () {
+
+        const name =
+          document
+            .getElementById("minecraftName")
+            .value
+            .trim();
+
+
+        hidePlayerError();
+
+
+        if (name.length === 0) {
+
+          showPlayerError(
+            "Please enter your Minecraft username."
+          );
+
+          return;
+
+        }
+
+
+        if (name.length > 30) {
+
+          showPlayerError(
+            "That Minecraft name is too long."
+          );
+
+          return;
+
+        }
+
+
+        const button =
+          document
+            .getElementById("subscribeButton");
+
+
+        button.disabled =
+          true;
+
+
+        button.textContent =
+          "Saving...";
+
+
+        try {
+
+          const now =
+            new Date();
+
+
+          const firstPayment =
+            new Date(now);
+
+
+          /*
+            Starter has the free 7-day trial.
+
+            Other plans start payment after 2 days.
+          */
+
+          if (selectedPlan === "Starter") {
+
+            firstPayment.setDate(
+              firstPayment.getDate() + 7
+            );
+
+          }
+
+          else {
+
+            firstPayment.setDate(
+              firstPayment.getDate() + 2
+            );
+
+          }
+
+
+          /*
+            Minecraft usernames are used as document IDs.
+
+            Lowercase means "Steve" and "steve"
+            count as the same subscriber.
+          */
+
+          const documentId =
+            name
+              .toLowerCase()
+              .replaceAll("/", "_");
+
+
+          const subscriptionRef =
+            doc(
+              db,
+              "subscriptions",
+              documentId
+            );
+
+
+          await setDoc(
+            subscriptionRef,
+            {
+
+              name:
+                name,
+
+              plan:
+                selectedPlan,
+
+              price:
+                selectedPrice,
+
+              startedAt:
+                Timestamp.fromDate(now),
+
+              nextPaymentAt:
+                Timestamp.fromDate(firstPayment),
+
+              status:
+                "waiting"
+
+            }
+          );
+
+
+          document
+            .getElementById("playerFormView")
+            .style.display =
+            "none";
+
+
+          document
+            .getElementById("successView")
+            .style.display =
+            "block";
+
+
+          let paymentMessage =
+            "";
+
+
+          if (selectedPlan === "Starter") {
+
+            paymentMessage =
+              "Your first 7 real-life days are free.";
+
+          }
+
+          else {
+
+            paymentMessage =
+              "Your first payment is due in 2 real-life days.";
+
+          }
+
+
+          document
+            .getElementById("successText")
+            .innerHTML =
+            "<strong>" +
+            escapeHTML(name) +
+            "</strong> chose <strong>" +
+            escapeHTML(selectedPlan) +
+            "</strong>.<br><br>" +
+            paymentMessage;
+
+        }
+
+        catch (error) {
+
+          console.error(
+            "Subscription error:",
+            error
+          );
+
+
+          /*
+            Because normal players cannot UPDATE
+            an existing subscription, attempting to
+            register the same name again will fail.
+          */
+
+          if (
+            error.code === "permission-denied"
+          ) {
+
+            showPlayerError(
+              "That Minecraft name already has a subscription. Ask the admin if you want to change it."
+            );
+
+          }
+
+          else {
+
+            showPlayerError(
+              "The subscription couldn't be saved. Please try again."
+            );
+
+          }
+
+        }
+
+        finally {
+
+          button.disabled =
+            false;
+
+
+          button.textContent =
+            "Choose plan";
+
+        }
+
+      };
+
+
+    /*
+      =====================================================
+      ADMIN LOGIN
+      =====================================================
+    */
+
+    window.openAdminLogin =
+      function () {
+
+        hideAdminError();
+
+
+        document
+          .getElementById("adminPassword")
+          .value =
+          "";
+
+
+        document
+          .getElementById("adminOverlay")
+          .classList
+          .add("visible");
+
+
+        setTimeout(
+          function () {
+
+            document
+              .getElementById("adminPassword")
+              .focus();
+
+          },
+          100
+        );
+
+      };
+
+
+    window.closeAdminLogin =
+      function () {
+
+        document
+          .getElementById("adminOverlay")
+          .classList
+          .remove("visible");
+
+      };
+
+
+    window.tryAdminLogin =
+      async function () {
+
+        hideAdminError();
+
+
+        const password =
+          document
+            .getElementById("adminPassword")
+            .value;
+
+
+        if (password.length === 0) {
+
+          showAdminError(
+            "Enter the admin code."
+          );
+
+          return;
+
+        }
+
+
+        const loginButton =
+          document
+            .getElementById("adminLoginButton");
+
+
+        loginButton.disabled =
+          true;
+
+
+        loginButton.textContent =
+          "Logging in...";
+
+
+        try {
+
+          await signInWithEmailAndPassword(
+            auth,
+            ADMIN_EMAIL,
+            password
+          );
+
+
+          closeAdminLogin();
+
+
+          openDashboard();
+
+
+          await loadSubscriptions();
+
+        }
+
+        catch (error) {
+
+          console.error(
+            "Login error:",
+            error
+          );
+
+
+          showAdminError(
+            "Wrong admin code."
+          );
+
+        }
+
+        finally {
+
+          loginButton.disabled =
+            false;
+
+
+          loginButton.textContent =
+            "Login";
+
+        }
+
+      };
+
+
+    /*
+      =====================================================
+      ADMIN SESSION
+      =====================================================
+    */
+
+    onAuthStateChanged(
+      auth,
+      function (user) {
+
+        if (
+          user &&
+          user.email === ADMIN_EMAIL
+        ) {
+
+          /*
+            We don't automatically open the dashboard
+            on every website refresh.
+
+            But the login session remains available.
+          */
+
+        }
+
+      }
+    );
+
+
+    /*
+      =====================================================
+      OPEN DASHBOARD
+      =====================================================
+    */
+
+    function openDashboard() {
 
       document
-        .getElementById("playerFormView")
-        .style.display = "none";
-
-      document
-        .getElementById("successView")
-        .style.display = "block";
-
-      document
-        .getElementById("successText")
-        .innerHTML =
-        "<strong>" +
-        escapeHTML(name) +
-        "</strong> selected <strong>" +
-        escapeHTML(selectedPlan) +
-        "</strong> for <strong>" +
-        escapeHTML(selectedPrice) +
-        "</strong>.<br><br>" +
-        "Payments are due every 2 real-life days.";
-
-    }
-
-    function openAdminLogin() {
-
-      document
-        .getElementById("adminPassword")
-        .value = "";
-
-      document
-        .getElementById("adminOverlay")
+        .getElementById("dashboardOverlay")
         .classList
         .add("visible");
 
-      setTimeout(function () {
 
-        document
-          .getElementById("adminPassword")
-          .focus();
-
-      }, 100);
+      document.body.style.overflow =
+        "hidden";
 
     }
 
-    function closeAdminLogin() {
 
-      document
-        .getElementById("adminOverlay")
-        .classList
-        .remove("visible");
+    /*
+      =====================================================
+      LOG OUT
+      =====================================================
+    */
 
-    }
+    window.logoutAdmin =
+      async function () {
 
-    function tryAdminLogin() {
+        await signOut(auth);
 
-      const code =
+
         document
-          .getElementById("adminPassword")
-          .value;
+          .getElementById("dashboardOverlay")
+          .classList
+          .remove("visible");
 
-      if (code.length === 0) {
 
-        alert(
-          "Enter the admin code."
+        document.body.style.overflow =
+          "";
+
+      };
+
+
+    /*
+      =====================================================
+      LOAD SUBSCRIPTIONS
+      =====================================================
+    */
+
+    window.loadSubscriptions =
+      async function () {
+
+        const list =
+          document
+            .getElementById("subscriberList");
+
+
+        list.innerHTML =
+          '<div class="loading">' +
+          'Loading subscribers...' +
+          '</div>';
+
+
+        try {
+
+          const snapshot =
+            await getDocs(
+              collection(
+                db,
+                "subscriptions"
+              )
+            );
+
+
+          const subscriptions =
+            [];
+
+
+          snapshot.forEach(
+            function (documentSnapshot) {
+
+              subscriptions.push(
+                {
+
+                  id:
+                    documentSnapshot.id,
+
+                  ...documentSnapshot.data()
+
+                }
+              );
+
+            }
+          );
+
+
+          /*
+            Sort earliest payments first.
+          */
+
+          subscriptions.sort(
+            function (a, b) {
+
+              return (
+                timestampMilliseconds(
+                  a.nextPaymentAt
+                ) -
+                timestampMilliseconds(
+                  b.nextPaymentAt
+                )
+              );
+
+            }
+          );
+
+
+          renderSubscriptions(
+            subscriptions
+          );
+
+        }
+
+        catch (error) {
+
+          console.error(
+            "Load error:",
+            error
+          );
+
+
+          list.innerHTML =
+            '<div class="empty-list">' +
+            'Could not load subscriptions.' +
+            '</div>';
+
+        }
+
+      };
+
+
+    /*
+      =====================================================
+      RENDER SUBSCRIPTIONS
+      =====================================================
+    */
+
+    function renderSubscriptions(
+      subscriptions
+    ) {
+
+      const list =
+        document
+          .getElementById("subscriberList");
+
+
+      if (
+        subscriptions.length === 0
+      ) {
+
+        list.innerHTML =
+          '<div class="empty-list">' +
+          '<strong>No subscribers yet.</strong>' +
+          '<br><br>' +
+          'When someone chooses a plan, they will appear here.' +
+          '</div>';
+
+
+        updateStats(
+          subscriptions
         );
+
 
         return;
 
       }
 
-      alert(
-        "Admin login will start working after we connect the shared subscriber database."
+
+      list.innerHTML =
+        "";
+
+
+      for (
+        const subscription
+        of subscriptions
+      ) {
+
+        const paymentInfo =
+          getPaymentStatus(
+            subscription.nextPaymentAt
+          );
+
+
+        const card =
+          document.createElement(
+            "div"
+          );
+
+
+        card.className =
+          "subscriber-card";
+
+
+        const planClass =
+          "plan-" +
+          String(
+            subscription.plan
+          ).toLowerCase();
+
+
+        card.innerHTML =
+          `
+
+            <div>
+
+              <div class="info-label">
+                Player
+              </div>
+
+              <div class="player-name">
+                ${escapeHTML(subscription.name)}
+              </div>
+
+            </div>
+
+
+            <div>
+
+              <div class="info-label">
+                Plan
+              </div>
+
+              <span class="plan-pill ${planClass}">
+                ${escapeHTML(subscription.plan)}
+              </span>
+
+            </div>
+
+
+            <div>
+
+              <div class="info-label">
+                Next payment
+              </div>
+
+              <div class="info-value">
+                ${formatTimestamp(subscription.nextPaymentAt)}
+              </div>
+
+            </div>
+
+
+            <div>
+
+              <div class="info-label">
+                Status
+              </div>
+
+              <span class="status ${paymentInfo.className}">
+                ${paymentInfo.label}
+              </span>
+
+            </div>
+
+
+            <div class="subscriber-actions">
+
+              <button
+                class="paid-button"
+                data-id="${escapeHTML(subscription.id)}"
+              >
+                ✓ Mark paid
+              </button>
+
+              <button
+                class="cancel-sub-button"
+                data-id="${escapeHTML(subscription.id)}"
+                data-name="${escapeHTML(subscription.name)}"
+              >
+                Cancel
+              </button>
+
+            </div>
+
+          `;
+
+
+        list.appendChild(
+          card
+        );
+
+      }
+
+
+      /*
+        Mark-paid button listeners.
+      */
+
+      document
+        .querySelectorAll(
+          ".paid-button"
+        )
+        .forEach(
+          function (button) {
+
+            button.addEventListener(
+              "click",
+              async function () {
+
+                await markPaid(
+                  button.dataset.id
+                );
+
+              }
+            );
+
+          }
+        );
+
+
+      /*
+        Cancel button listeners.
+      */
+
+      document
+        .querySelectorAll(
+          ".cancel-sub-button"
+        )
+        .forEach(
+          function (button) {
+
+            button.addEventListener(
+              "click",
+              async function () {
+
+                await cancelSubscription(
+                  button.dataset.id,
+                  button.dataset.name
+                );
+
+              }
+            );
+
+          }
+        );
+
+
+      updateStats(
+        subscriptions
       );
 
     }
 
-    function escapeHTML(value) {
 
-      return value
-        .replaceAll("&", "&amp;")
-        .replaceAll("<", "&lt;")
-        .replaceAll(">", "&gt;")
-        .replaceAll('"', "&quot;")
-        .replaceAll("'", "&#039;");
+    /*
+      =====================================================
+      MARK PAID
+      =====================================================
+    */
+
+    async function markPaid(
+      id
+    ) {
+
+      try {
+
+        const subscriptionRef =
+          doc(
+            db,
+            "subscriptions",
+            id
+          );
+
+
+        /*
+          Payment always moves forward
+          two days from NOW.
+
+          This means if someone is overdue and pays today,
+          they get two fresh days.
+        */
+
+        const nextPayment =
+          new Date();
+
+
+        nextPayment.setDate(
+          nextPayment.getDate() + 2
+        );
+
+
+        await updateDoc(
+          subscriptionRef,
+          {
+
+            nextPaymentAt:
+              Timestamp.fromDate(
+                nextPayment
+              ),
+
+            lastPaidAt:
+              Timestamp.fromDate(
+                new Date()
+              ),
+
+            status:
+              "waiting"
+
+          }
+        );
+
+
+        await loadSubscriptions();
+
+      }
+
+      catch (error) {
+
+        console.error(
+          "Mark paid error:",
+          error
+        );
+
+
+        alert(
+          "Could not mark this payment as paid."
+        );
+
+      }
 
     }
+
+
+    /*
+      =====================================================
+      CANCEL SUBSCRIPTION
+      =====================================================
+    */
+
+    async function cancelSubscription(
+      id,
+      name
+    ) {
+
+      const confirmed =
+        confirm(
+          "Cancel " +
+          name +
+          "'s subscription?"
+        );
+
+
+      if (!confirmed) {
+
+        return;
+
+      }
+
+
+      try {
+
+        await deleteDoc(
+          doc(
+            db,
+            "subscriptions",
+            id
+          )
+        );
+
+
+        await loadSubscriptions();
+
+      }
+
+      catch (error) {
+
+        console.error(
+          "Cancel error:",
+          error
+        );
+
+
+        alert(
+          "Could not cancel this subscription."
+        );
+
+      }
+
+    }
+
+
+    /*
+      =====================================================
+      PAYMENT STATUS
+      =====================================================
+    */
+
+    function getPaymentStatus(
+      timestamp
+    ) {
+
+      const paymentDate =
+        toDate(timestamp);
+
+
+      if (!paymentDate) {
+
+        return {
+          label:
+            "Unknown",
+
+          className:
+            "status-due"
+        };
+
+      }
+
+
+      const now =
+        new Date();
+
+
+      const today =
+        new Date(
+          now.getFullYear(),
+          now.getMonth(),
+          now.getDate()
+        );
+
+
+      const dueDay =
+        new Date(
+          paymentDate.getFullYear(),
+          paymentDate.getMonth(),
+          paymentDate.getDate()
+        );
+
+
+      if (
+        dueDay.getTime() <
+        today.getTime()
+      ) {
+
+        return {
+
+          label:
+            "🔴 Overdue",
+
+          className:
+            "status-overdue"
+
+        };
+
+      }
+
+
+      if (
+        dueDay.getTime() ===
+        today.getTime()
+      ) {
+
+        return {
+
+          label:
+            "🟡 Due today",
+
+          className:
+            "status-due"
+
+        };
+
+      }
+
+
+      return {
+
+        label:
+          "🟢 Upcoming",
+
+        className:
+          "status-upcoming"
+
+      };
+
+    }
+
+
+    /*
+      =====================================================
+      STATS
+      =====================================================
+    */
+
+    function updateStats(
+      subscriptions
+    ) {
+
+      let due =
+        0;
+
+
+      let overdue =
+        0;
+
+
+      let premium =
+        0;
+
+
+      for (
+        const subscription
+        of subscriptions
+      ) {
+
+        const status =
+          getPaymentStatus(
+            subscription.nextPaymentAt
+          );
+
+
+        if (
+          status.className ===
+          "status-due"
+        ) {
+
+          due++;
+
+        }
+
+
+        if (
+          status.className ===
+          "status-overdue"
+        ) {
+
+          overdue++;
+
+        }
+
+
+        if (
+          subscription.plan ===
+          "Premium"
+        ) {
+
+          premium++;
+
+        }
+
+      }
+
+
+      document
+        .getElementById("statTotal")
+        .textContent =
+        subscriptions.length;
+
+
+      document
+        .getElementById("statDue")
+        .textContent =
+        due;
+
+
+      document
+        .getElementById("statOverdue")
+        .textContent =
+        overdue;
+
+
+      document
+        .getElementById("statPremium")
+        .textContent =
+        premium;
+
+    }
+
+
+    /*
+      =====================================================
+      DATES
+      =====================================================
+    */
+
+    function toDate(
+      timestamp
+    ) {
+
+      if (!timestamp) {
+
+        return null;
+
+      }
+
+
+      if (
+        typeof timestamp.toDate ===
+        "function"
+      ) {
+
+        return timestamp.toDate();
+
+      }
+
+
+      if (
+        timestamp.seconds
+      ) {
+
+        return new Date(
+          timestamp.seconds * 1000
+        );
+
+      }
+
+
+      return null;
+
+    }
+
+
+    function timestampMilliseconds(
+      timestamp
+    ) {
+
+      const date =
+        toDate(timestamp);
+
+
+      if (!date) {
+
+        return 0;
+
+      }
+
+
+      return date.getTime();
+
+    }
+
+
+    function formatTimestamp(
+      timestamp
+    ) {
+
+      const date =
+        toDate(timestamp);
+
+
+      if (!date) {
+
+        return "Unknown";
+
+      }
+
+
+      return date.toLocaleDateString(
+        undefined,
+        {
+
+          day:
+            "numeric",
+
+          month:
+            "short",
+
+          year:
+            "numeric"
+
+        }
+      );
+
+    }
+
+
+    /*
+      =====================================================
+      ERROR BOXES
+      =====================================================
+    */
+
+    function showPlayerError(
+      message
+    ) {
+
+      const element =
+        document
+          .getElementById("playerError");
+
+
+      element.textContent =
+        message;
+
+
+      element
+        .classList
+        .add("visible");
+
+    }
+
+
+    function hidePlayerError() {
+
+      document
+        .getElementById("playerError")
+        .classList
+        .remove("visible");
+
+    }
+
+
+    function showAdminError(
+      message
+    ) {
+
+      const element =
+        document
+          .getElementById("adminError");
+
+
+      element.textContent =
+        message;
+
+
+      element
+        .classList
+        .add("visible");
+
+    }
+
+
+    function hideAdminError() {
+
+      document
+        .getElementById("adminError")
+        .classList
+        .remove("visible");
+
+    }
+
+
+    /*
+      =====================================================
+      SAFE HTML
+      =====================================================
+    */
+
+    function escapeHTML(
+      value
+    ) {
+
+      return String(value)
+
+        .replaceAll(
+          "&",
+          "&amp;"
+        )
+
+        .replaceAll(
+          "<",
+          "&lt;"
+        )
+
+        .replaceAll(
+          ">",
+          "&gt;"
+        )
+
+        .replaceAll(
+          '"',
+          "&quot;"
+        )
+
+        .replaceAll(
+          "'",
+          "&#039;"
+        );
+
+    }
+
+
+    /*
+      =====================================================
+      CLICK OUTSIDE POPUPS
+      =====================================================
+    */
 
     document
       .getElementById("playerOverlay")
       .addEventListener(
         "click",
-        function(event) {
+        function (event) {
 
-          if (event.target === this) {
+          if (
+            event.target === this
+          ) {
+
             closePlayerPopup();
+
           }
 
         }
       );
+
 
     document
       .getElementById("adminOverlay")
       .addEventListener(
         "click",
-        function(event) {
+        function (event) {
 
-          if (event.target === this) {
+          if (
+            event.target === this
+          ) {
+
             closeAdminLogin();
+
           }
 
         }
       );
+
+
+    /*
+      =====================================================
+      ENTER KEY
+      =====================================================
+    */
 
     document
       .getElementById("minecraftName")
       .addEventListener(
         "keydown",
-        function(event) {
+        function (event) {
 
-          if (event.key === "Enter") {
+          if (
+            event.key ===
+            "Enter"
+          ) {
+
             confirmPlan();
+
           }
 
         }
       );
 
+
     document
       .getElementById("adminPassword")
       .addEventListener(
         "keydown",
-        function(event) {
+        function (event) {
 
-          if (event.key === "Enter") {
+          if (
+            event.key ===
+            "Enter"
+          ) {
+
             tryAdminLogin();
+
           }
 
         }
