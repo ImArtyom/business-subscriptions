@@ -11,6 +11,14 @@
       box-sizing: border-box;
     }
 
+    :root {
+      --purple: #6a2383;
+      --purple-light: #8e3ca4;
+      --text: #151515;
+      --muted: #666;
+      --border: #d8d8d8;
+    }
+
     body {
       margin: 0;
       min-height: 100vh;
@@ -18,26 +26,31 @@
       font-family: Arial, Helvetica, sans-serif;
 
       background: #ffffff;
-      color: #151515;
+      color: var(--text);
 
       overflow-x: hidden;
     }
 
-    /* =========================
-       MAIN TITLE
-       ========================= */
+    button,
+    input {
+      font: inherit;
+    }
+
+    /* =====================================================
+       TITLE
+       ===================================================== */
 
     .page-title {
       text-align: center;
 
-      font-size: clamp(32px, 5vw, 68px);
+      font-size: clamp(36px, 4.5vw, 70px);
       font-weight: 900;
-      letter-spacing: 3px;
+      letter-spacing: 4px;
 
-      margin: 45px 20px 8px;
+      margin: 42px 20px 6px;
 
       opacity: 0;
-      transform: translateY(-45px);
+      transform: translateY(-50px);
 
       animation: titleIn 0.8s ease forwards;
     }
@@ -48,30 +61,29 @@
       color: #666;
       font-size: 18px;
 
-      margin-bottom: 35px;
+      margin-bottom: 32px;
 
       opacity: 0;
 
-      animation: fadeIn 0.8s ease 0.5s forwards;
+      animation: fadeIn 0.8s ease 0.45s forwards;
     }
 
-    /* =========================
-       PLANS AREA
-       ========================= */
+    /* =====================================================
+       PLANS
+       ===================================================== */
 
     .plans-area {
       width: 100%;
-      margin: 0 auto;
     }
 
     .plans {
-      width: min(1450px, 70%);
+      width: min(1580px, 78%);
       margin: 0 auto;
 
       display: grid;
       grid-template-columns: repeat(3, 1fr);
-      gap: 28px;
 
+      gap: 24px;
       align-items: start;
     }
 
@@ -80,30 +92,32 @@
       text-align: center;
     }
 
-    /* =========================
-       LOGO + PLAN NAME
-       ========================= */
+    /* =====================================================
+       PLAN HEADERS
+       ===================================================== */
 
     .plan-header {
       display: flex;
       justify-content: center;
       align-items: center;
 
-      gap: 15px;
-      margin-bottom: 15px;
+      gap: 14px;
+
+      margin-bottom: 12px;
 
       opacity: 0;
       transform: translateY(-150px);
     }
 
     .plan-logo {
-      width: 78px;
-      height: 78px;
+      width: 82px;
+      height: 82px;
+
       object-fit: contain;
     }
 
     .plan-name {
-      font-size: clamp(29px, 3vw, 48px);
+      font-size: clamp(31px, 2.8vw, 50px);
       font-weight: 900;
       letter-spacing: 2px;
     }
@@ -120,9 +134,9 @@
       animation: headerDrop 0.8s ease 1.1s forwards;
     }
 
-    /* =========================
-       CARD
-       ========================= */
+    /* =====================================================
+       PLAN FRAME
+       ===================================================== */
 
     .plan-body {
       position: relative;
@@ -130,7 +144,7 @@
       width: 100%;
 
       opacity: 0;
-      transform: translateY(250px);
+      transform: translateY(260px);
     }
 
     .starter .plan-body {
@@ -150,28 +164,29 @@
       display: block;
     }
 
-    /* =========================
-       PRICE BUTTON
-       ========================= */
+    /* =====================================================
+       PRICE BUTTONS
+       ===================================================== */
 
     .price-button {
       position: absolute;
 
-      left: 10%;
-      bottom: 3.5%;
+      left: 14%;
+      bottom: 1.5%;
 
-      width: 80%;
+      width: 72%;
 
       border: 0;
       padding: 0;
       margin: 0;
 
       background: transparent;
+
       cursor: pointer;
 
       transition:
-        transform 0.15s ease,
-        filter 0.15s ease;
+        transform 0.16s ease,
+        filter 0.16s ease;
     }
 
     .price-button img {
@@ -180,23 +195,24 @@
     }
 
     .price-button:hover {
-      transform: scale(1.035);
+      transform: translateY(-2px) scale(1.035);
       filter: brightness(1.06);
     }
 
     .price-button:active {
-      transform: scale(0.98);
+      transform: translateY(1px) scale(0.975);
     }
 
-    /* =========================
+    /* =====================================================
        PAYMENT NOTE
-       ========================= */
+       ===================================================== */
 
     .payment-note {
-      width: min(1450px, 70%);
-      margin: 18px auto 0;
+      width: min(1580px, 78%);
+      margin: 17px auto 0;
 
       color: #555;
+
       font-size: 17px;
       font-weight: 600;
 
@@ -205,14 +221,14 @@
       animation: paymentNote 1.4s ease 2.9s forwards;
     }
 
-    /* =========================
-       ADMIN BUTTON
-       ========================= */
+    /* =====================================================
+       ADMIN
+       ===================================================== */
 
     .admin-area {
       text-align: center;
 
-      margin-top: 32px;
+      margin-top: 28px;
       margin-bottom: 60px;
     }
 
@@ -220,13 +236,13 @@
       border: 2px solid #777;
       border-radius: 12px;
 
-      background: white;
-      color: #555;
+      background: #fff;
+      color: #444;
 
       padding: 11px 22px;
 
       font-size: 15px;
-      font-weight: bold;
+      font-weight: 700;
 
       cursor: pointer;
 
@@ -236,129 +252,379 @@
     }
 
     .admin-button:hover {
-      background: #eeeeee;
+      background: #f2f2f2;
       transform: scale(1.04);
     }
 
-    /* =========================
-       POPUPS
-       ========================= */
+    /* =====================================================
+       OVERLAY
+       ===================================================== */
 
     .overlay {
       position: fixed;
       inset: 0;
 
-      background: rgba(0, 0, 0, 0.55);
-
       display: none;
       justify-content: center;
       align-items: center;
 
-      z-index: 100;
+      padding: 22px;
 
-      padding: 20px;
+      background: rgba(20, 10, 25, 0.65);
+      backdrop-filter: blur(5px);
+
+      z-index: 1000;
     }
 
     .overlay.visible {
       display: flex;
     }
 
-    .popup {
-      width: min(420px, 100%);
+    /* =====================================================
+       NEW PLAN POPUP
+       ===================================================== */
 
-      background: white;
-      border-radius: 20px;
+    .plan-popup {
+      position: relative;
 
-      padding: 28px;
+      width: min(500px, 100%);
+
+      background: #fff;
+
+      border-radius: 24px;
+
+      overflow: hidden;
 
       box-shadow:
-        0 20px 70px rgba(0, 0, 0, 0.35);
+        0 30px 90px rgba(0, 0, 0, 0.35);
 
-      animation: popupIn 0.25s ease;
+      animation: popupIn 0.28s ease;
     }
 
-    .popup h2 {
-      margin: 0 0 7px;
-      font-size: 30px;
+    .popup-accent {
+      height: 9px;
+      background: var(--purple);
     }
 
-    .popup-plan {
-      margin-bottom: 22px;
-      color: #666;
+    .popup-content {
+      padding: 30px;
     }
 
-    .popup label {
-      font-weight: bold;
+    .popup-plan-header {
+      display: flex;
+      align-items: center;
+
+      gap: 17px;
+
+      margin-bottom: 24px;
     }
 
-    .popup input {
+    .popup-plan-logo {
+      width: 78px;
+      height: 78px;
+
+      object-fit: contain;
+
+      flex-shrink: 0;
+    }
+
+    .popup-plan-info {
+      min-width: 0;
+    }
+
+    .popup-small-title {
+      color: #777;
+
+      font-size: 14px;
+      font-weight: 700;
+
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+
+      margin-bottom: 3px;
+    }
+
+    .popup-plan-name {
+      font-size: 34px;
+      font-weight: 900;
+
+      line-height: 1;
+    }
+
+    .popup-price {
+      margin-top: 7px;
+
+      color: #555;
+
+      font-size: 17px;
+      font-weight: 700;
+    }
+
+    .popup-divider {
+      height: 1px;
+
+      background: #e2e2e2;
+
+      margin: 0 0 24px;
+    }
+
+    .minecraft-label {
+      display: block;
+
+      margin-bottom: 8px;
+
+      font-size: 16px;
+      font-weight: 800;
+    }
+
+    .minecraft-input-wrap {
+      display: flex;
+      align-items: center;
+
+      gap: 10px;
+
+      padding: 4px 13px;
+
+      border: 2px solid #d2d2d2;
+      border-radius: 13px;
+
+      transition:
+        border 0.15s ease,
+        box-shadow 0.15s ease;
+    }
+
+    .minecraft-input-wrap:focus-within {
+      border-color: var(--purple);
+
+      box-shadow:
+        0 0 0 4px rgba(106, 35, 131, 0.10);
+    }
+
+    .player-icon {
+      font-size: 23px;
+    }
+
+    .minecraft-input {
       width: 100%;
 
-      padding: 14px;
+      border: 0;
+      outline: 0;
 
-      margin-top: 8px;
-      margin-bottom: 20px;
+      padding: 12px 2px;
 
-      border-radius: 10px;
-      border: 2px solid #ccc;
+      font-size: 19px;
 
-      font-size: 18px;
-      outline: none;
+      background: transparent;
     }
 
-    .popup input:focus {
-      border-color: #713094;
+    .popup-help {
+      margin-top: 10px;
+
+      color: #888;
+
+      font-size: 13px;
+      line-height: 1.4;
+    }
+
+    .popup-summary {
+      margin: 22px 0;
+
+      padding: 16px 18px;
+
+      border-radius: 14px;
+
+      background: #f6f2f8;
+
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+
+      gap: 20px;
+    }
+
+    .summary-label {
+      color: #777;
+
+      font-size: 13px;
+      font-weight: 700;
+    }
+
+    .summary-value {
+      margin-top: 3px;
+
+      font-size: 17px;
+      font-weight: 900;
+    }
+
+    .summary-cycle {
+      text-align: right;
+
+      color: #555;
+
+      font-size: 14px;
+      font-weight: 700;
     }
 
     .popup-buttons {
-      display: flex;
+      display: grid;
+      grid-template-columns: 1fr 1.4fr;
+
       gap: 10px;
     }
 
-    .popup-buttons button {
-      flex: 1;
-
-      padding: 13px;
-
+    .popup-button {
       border: 0;
-      border-radius: 10px;
+      border-radius: 12px;
 
-      font-weight: bold;
+      padding: 14px 16px;
+
       font-size: 16px;
+      font-weight: 800;
 
       cursor: pointer;
+
+      transition:
+        transform 0.14s ease,
+        filter 0.14s ease;
     }
 
-    .confirm {
-      background: #6d298d;
-      color: white;
+    .popup-button:hover {
+      transform: translateY(-1px);
     }
 
-    .cancel {
-      background: #e5e5e5;
-      color: #333;
+    .popup-button:active {
+      transform: translateY(1px);
     }
 
-    /* =========================
+    .cancel-button {
+      background: #ededed;
+      color: #444;
+    }
+
+    .confirm-button {
+      background: var(--purple);
+      color: #fff;
+    }
+
+    /* =====================================================
        SUCCESS VIEW
-       ========================= */
+       ===================================================== */
 
-    .success {
+    .success-view {
+      display: none;
+
       text-align: center;
+
+      padding: 15px 0 5px;
     }
 
-    .success-icon {
-      font-size: 56px;
+    .success-circle {
+      width: 82px;
+      height: 82px;
+
+      margin: 0 auto 18px;
+
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      border-radius: 50%;
+
+      background: #ecf8e9;
+
+      font-size: 42px;
     }
 
-    /* =========================
+    .success-view h2 {
+      margin: 0;
+
+      font-size: 28px;
+    }
+
+    .success-message {
+      margin: 10px 0 23px;
+
+      color: #666;
+
+      line-height: 1.45;
+    }
+
+    .done-button {
+      width: 100%;
+    }
+
+    /* =====================================================
+       ADMIN POPUP
+       ===================================================== */
+
+    .admin-popup {
+      width: min(440px, 100%);
+
+      padding: 28px;
+
+      background: #fff;
+
+      border-radius: 22px;
+
+      box-shadow:
+        0 30px 90px rgba(0, 0, 0, 0.35);
+
+      animation: popupIn 0.28s ease;
+    }
+
+    .admin-popup h2 {
+      margin: 0 0 5px;
+
+      font-size: 29px;
+    }
+
+    .admin-popup-subtitle {
+      color: #777;
+
+      margin-bottom: 23px;
+    }
+
+    .admin-popup label {
+      display: block;
+
+      font-weight: 800;
+
+      margin-bottom: 8px;
+    }
+
+    .admin-popup input {
+      width: 100%;
+
+      padding: 13px 14px;
+
+      border: 2px solid #ccc;
+      border-radius: 12px;
+
+      outline: 0;
+
+      font-size: 18px;
+
+      margin-bottom: 18px;
+    }
+
+    .admin-popup input:focus {
+      border-color: var(--purple);
+    }
+
+    /* =====================================================
        ANIMATIONS
-       ========================= */
+       ===================================================== */
 
     @keyframes titleIn {
       to {
         opacity: 1;
         transform: translateY(0);
+      }
+    }
+
+    @keyframes fadeIn {
+      to {
+        opacity: 1;
       }
     }
 
@@ -382,7 +648,7 @@
     @keyframes cardRise {
       0% {
         opacity: 0;
-        transform: translateY(250px);
+        transform: translateY(260px);
       }
 
       75% {
@@ -393,12 +659,6 @@
       100% {
         opacity: 1;
         transform: translateY(0);
-      }
-    }
-
-    @keyframes fadeIn {
-      to {
-        opacity: 1;
       }
     }
 
@@ -417,60 +677,81 @@
     @keyframes popupIn {
       from {
         opacity: 0;
-        transform: scale(0.9);
+        transform: translateY(15px) scale(0.94);
       }
 
       to {
         opacity: 1;
-        transform: scale(1);
+        transform: translateY(0) scale(1);
       }
     }
 
-    /* =========================
+    /* =====================================================
        TABLET
-       ========================= */
+       ===================================================== */
 
-    @media (max-width: 1100px) {
+    @media (max-width: 1150px) {
       .plans {
-        width: 88%;
+        width: 90%;
       }
 
       .payment-note {
-        width: 88%;
+        width: 90%;
+      }
+
+      .plan-logo {
+        width: 68px;
+        height: 68px;
       }
     }
 
-    /* =========================
+    /* =====================================================
        PHONE
-       ========================= */
+       ===================================================== */
 
     @media (max-width: 800px) {
       .plans {
         grid-template-columns: 1fr;
-        width: min(520px, 92%);
-      }
 
-      .plan {
-        margin-bottom: 35px;
-      }
-
-      .page-title {
-        margin-top: 30px;
-      }
-
-      .plan-header {
-        margin-top: 15px;
+        width: min(540px, 92%);
       }
 
       .payment-note {
-        width: min(520px, 92%);
-        margin-top: 0;
+        width: min(540px, 92%);
+      }
+
+      .plan {
+        margin-bottom: 38px;
+      }
+
+      .page-title {
+        margin-top: 28px;
+
+        font-size: 38px;
+      }
+
+      .subtitle {
+        margin-bottom: 18px;
+      }
+
+      .plan-header {
+        margin-top: 12px;
+      }
+
+      .price-button {
+        width: 70%;
+        left: 15%;
       }
     }
+
   </style>
 </head>
 
 <body>
+
+  <!-- =====================================================
+       TITLE
+       ===================================================== -->
 
   <h1 class="page-title">
     BUSINESS SUBSCRIPTIONS
@@ -480,9 +761,15 @@
     Choose a plan for your business
   </div>
 
+
+  <!-- =====================================================
+       PLANS
+       ===================================================== -->
+
   <div class="plans-area">
 
     <main class="plans">
+
 
       <!-- STARTER -->
 
@@ -512,7 +799,12 @@
 
           <button
             class="price-button"
-            onclick="choosePlan('Starter', '1.2 gold')"
+            onclick="choosePlan(
+              'Starter',
+              '1.2 gold',
+              'Starter logo.png',
+              '#579b3d'
+            )"
           >
 
             <img
@@ -525,6 +817,7 @@
         </div>
 
       </section>
+
 
       <!-- ECONOMY -->
 
@@ -554,7 +847,12 @@
 
           <button
             class="price-button"
-            onclick="choosePlan('Economy', '2.5 gold')"
+            onclick="choosePlan(
+              'Economy',
+              '2.5 gold',
+              'Economy logo.png',
+              '#e5bc35'
+            )"
           >
 
             <img
@@ -567,6 +865,7 @@
         </div>
 
       </section>
+
 
       <!-- PREMIUM -->
 
@@ -596,7 +895,12 @@
 
           <button
             class="price-button"
-            onclick="choosePlan('Premium', '5 gold')"
+            onclick="choosePlan(
+              'Premium',
+              '5 gold',
+              'Premium logo.png',
+              '#e5bc35'
+            )"
           >
 
             <img
@@ -610,13 +914,20 @@
 
       </section>
 
+
     </main>
+
 
     <div class="payment-note">
       * Every 2 real-life days
     </div>
 
   </div>
+
+
+  <!-- =====================================================
+       ADMIN BUTTON
+       ===================================================== -->
 
   <div class="admin-area">
 
@@ -629,85 +940,172 @@
 
   </div>
 
-  <!-- PLAYER POPUP -->
+
+  <!-- =====================================================
+       PLAN POPUP
+       ===================================================== -->
 
   <div
     class="overlay"
     id="playerOverlay"
   >
 
-    <div class="popup">
-
-      <div id="playerFormView">
-
-        <h2 id="popupTitle">
-          Choose plan
-        </h2>
-
-        <div
-          class="popup-plan"
-          id="popupPlan"
-        ></div>
-
-        <label for="minecraftName">
-          Your Minecraft name
-        </label>
-
-        <input
-          id="minecraftName"
-          type="text"
-          maxlength="30"
-          autocomplete="off"
-        >
-
-        <div class="popup-buttons">
-
-          <button
-            class="cancel"
-            onclick="closePlayerPopup()"
-          >
-            Cancel
-          </button>
-
-          <button
-            class="confirm"
-            onclick="confirmPlan()"
-          >
-            Confirm
-          </button>
-
-        </div>
-
-      </div>
+    <div class="plan-popup">
 
       <div
-        id="successView"
-        class="success"
-        style="display:none;"
-      >
+        class="popup-accent"
+        id="popupAccent"
+      ></div>
 
-        <div class="success-icon">
-          ✅
+      <div class="popup-content">
+
+
+        <!-- FORM -->
+
+        <div id="playerFormView">
+
+          <div class="popup-plan-header">
+
+            <img
+              class="popup-plan-logo"
+              id="popupLogo"
+              src=""
+              alt=""
+            >
+
+            <div class="popup-plan-info">
+
+              <div class="popup-small-title">
+                You are choosing
+              </div>
+
+              <div
+                class="popup-plan-name"
+                id="popupPlanName"
+              >
+                Economy
+              </div>
+
+              <div
+                class="popup-price"
+                id="popupPrice"
+              >
+                2.5 gold
+              </div>
+
+            </div>
+
+          </div>
+
+
+          <div class="popup-divider"></div>
+
+
+          <label
+            class="minecraft-label"
+            for="minecraftName"
+          >
+            Minecraft username
+          </label>
+
+
+          <div class="minecraft-input-wrap">
+
+            <div class="player-icon">
+              👤
+            </div>
+
+            <input
+              class="minecraft-input"
+              id="minecraftName"
+              type="text"
+              maxlength="30"
+              autocomplete="off"
+            >
+
+          </div>
+
+
+          <div class="popup-help">
+            Enter the name you use in our Minecraft world.
+          </div>
+
+
+          <div class="popup-summary">
+
+            <div>
+
+              <div class="summary-label">
+                Subscription
+              </div>
+
+              <div
+                class="summary-value"
+                id="summaryPlan"
+              >
+                Economy
+              </div>
+
+            </div>
+
+            <div class="summary-cycle">
+              Payment every<br>
+              <strong>2 real-life days</strong>
+            </div>
+
+          </div>
+
+
+          <div class="popup-buttons">
+
+            <button
+              class="popup-button cancel-button"
+              onclick="closePlayerPopup()"
+            >
+              Cancel
+            </button>
+
+            <button
+              class="popup-button confirm-button"
+              id="subscribeButton"
+              onclick="confirmPlan()"
+            >
+              Choose plan
+            </button>
+
+          </div>
+
         </div>
 
-        <h2>
-          Subscription selected!
-        </h2>
 
-        <p id="successText"></p>
+        <!-- SUCCESS -->
 
-        <button
-          class="confirm"
-          style="
-            width:100%;
-            padding:13px;
-            border:0;
-            border-radius:10px;
-          "
-          onclick="closePlayerPopup()"
+        <div
+          class="success-view"
+          id="successView"
         >
-          Done
-        </button>
+
+          <div class="success-circle">
+            ✓
+          </div>
+
+          <h2>
+            You're subscribed!
+          </h2>
+
+          <div
+            class="success-message"
+            id="successText"
+          ></div>
+
+          <button
+            class="popup-button confirm-button done-button"
+            onclick="closePlayerPopup()"
+          >
+            Done
+          </button>
+
+        </div>
 
       </div>
 
@@ -715,21 +1113,24 @@
 
   </div>
 
-  <!-- ADMIN LOGIN POPUP -->
+
+  <!-- =====================================================
+       ADMIN POPUP
+       ===================================================== -->
 
   <div
     class="overlay"
     id="adminOverlay"
   >
 
-    <div class="popup">
+    <div class="admin-popup">
 
       <h2>
-        Admin Login
+        ⚙ Admin Login
       </h2>
 
-      <div class="popup-plan">
-        Enter the admin code
+      <div class="admin-popup-subtitle">
+        Business subscription management
       </div>
 
       <label for="adminPassword">
@@ -745,14 +1146,14 @@
       <div class="popup-buttons">
 
         <button
-          class="cancel"
+          class="popup-button cancel-button"
           onclick="closeAdminLogin()"
         >
           Cancel
         </button>
 
         <button
-          class="confirm"
+          class="popup-button confirm-button"
           onclick="tryAdminLogin()"
         >
           Login
@@ -764,42 +1165,82 @@
 
   </div>
 
+
   <script>
 
     let selectedPlan = "";
     let selectedPrice = "";
+    let selectedLogo = "";
+    let selectedColor = "";
 
-    function choosePlan(plan, price) {
+
+    /* =====================================================
+       CHOOSE PLAN
+       ===================================================== */
+
+    function choosePlan(
+      plan,
+      price,
+      logo,
+      color
+    ) {
 
       selectedPlan = plan;
       selectedPrice = price;
+      selectedLogo = logo;
+      selectedColor = color;
+
 
       document
-        .getElementById("popupTitle")
-        .textContent =
-        "Choose " + plan;
+        .getElementById("popupPlanName")
+        .textContent = plan;
+
 
       document
-        .getElementById("popupPlan")
-        .textContent =
-        price + " • every 2 real-life days";
+        .getElementById("popupPrice")
+        .textContent = price;
+
+
+      document
+        .getElementById("summaryPlan")
+        .textContent = plan;
+
+
+      document
+        .getElementById("popupLogo")
+        .src = logo;
+
+
+      document
+        .getElementById("popupAccent")
+        .style.background = color;
+
+
+      document
+        .getElementById("subscribeButton")
+        .style.background = color;
+
 
       document
         .getElementById("minecraftName")
         .value = "";
 
+
       document
         .getElementById("playerFormView")
         .style.display = "block";
+
 
       document
         .getElementById("successView")
         .style.display = "none";
 
+
       document
         .getElementById("playerOverlay")
         .classList
         .add("visible");
+
 
       setTimeout(function () {
 
@@ -807,9 +1248,14 @@
           .getElementById("minecraftName")
           .focus();
 
-      }, 100);
+      }, 120);
 
     }
+
+
+    /* =====================================================
+       CLOSE PLAYER POPUP
+       ===================================================== */
 
     function closePlayerPopup() {
 
@@ -820,6 +1266,11 @@
 
     }
 
+
+    /* =====================================================
+       CONFIRM PLAN
+       ===================================================== */
+
     function confirmPlan() {
 
       const name =
@@ -828,45 +1279,74 @@
           .value
           .trim();
 
+
       if (name.length === 0) {
 
-        alert("Please enter your Minecraft name.");
+        alert(
+          "Please enter your Minecraft username."
+        );
 
         return;
 
       }
 
+
       const subscription = {
+
         name: name,
+
         plan: selectedPlan,
+
         price: selectedPrice,
-        started: new Date().toISOString()
+
+        started:
+          new Date().toISOString()
+
       };
+
+
+      /*
+        TEMPORARY:
+
+        This still saves only in this browser.
+
+        The shared database comes next.
+      */
 
       localStorage.setItem(
         "minecraftSubscription",
         JSON.stringify(subscription)
       );
 
+
       document
         .getElementById("playerFormView")
         .style.display = "none";
+
 
       document
         .getElementById("successView")
         .style.display = "block";
 
+
       document
         .getElementById("successText")
-        .textContent =
-        name +
-        " chose " +
-        selectedPlan +
-        " for " +
-        selectedPrice +
-        ".";
+        .innerHTML =
+        "<strong>" +
+        escapeHTML(name) +
+        "</strong> selected <strong>" +
+        escapeHTML(selectedPlan) +
+        "</strong> for <strong>" +
+        escapeHTML(selectedPrice) +
+        "</strong>.<br><br>" +
+        "Payments are due every 2 real-life days.";
 
     }
+
+
+    /* =====================================================
+       ADMIN
+       ===================================================== */
 
     function openAdminLogin() {
 
@@ -874,10 +1354,12 @@
         .getElementById("adminPassword")
         .value = "";
 
+
       document
         .getElementById("adminOverlay")
         .classList
         .add("visible");
+
 
       setTimeout(function () {
 
@@ -889,6 +1371,7 @@
 
     }
 
+
     function closeAdminLogin() {
 
       document
@@ -898,6 +1381,7 @@
 
     }
 
+
     function tryAdminLogin() {
 
       const code =
@@ -905,67 +1389,107 @@
           .getElementById("adminPassword")
           .value;
 
+
       if (code.length === 0) {
 
-        alert("Enter the admin code.");
+        alert(
+          "Enter the admin code."
+        );
 
         return;
 
       }
 
+
       alert(
-        "Admin login will be connected to the database in the next step."
+        "Admin login will start working after we connect the shared subscriber database."
       );
 
     }
+
+
+    /* =====================================================
+       SAFE TEXT
+       ===================================================== */
+
+    function escapeHTML(value) {
+
+      return value
+        .replaceAll("&", "&amp;")
+        .replaceAll("<", "&lt;")
+        .replaceAll(">", "&gt;")
+        .replaceAll('"', "&quot;")
+        .replaceAll("'", "&#039;");
+
+    }
+
+
+    /* =====================================================
+       CLICK BACKGROUND TO CLOSE
+       ===================================================== */
 
     document
       .getElementById("playerOverlay")
       .addEventListener(
         "click",
-        function (event) {
+        function(event) {
 
           if (event.target === this) {
+
             closePlayerPopup();
+
           }
 
         }
       );
+
 
     document
       .getElementById("adminOverlay")
       .addEventListener(
         "click",
-        function (event) {
+        function(event) {
 
           if (event.target === this) {
+
             closeAdminLogin();
+
           }
 
         }
       );
+
+
+    /* =====================================================
+       ENTER KEY
+       ===================================================== */
 
     document
       .getElementById("minecraftName")
       .addEventListener(
         "keydown",
-        function (event) {
+        function(event) {
 
           if (event.key === "Enter") {
+
             confirmPlan();
+
           }
 
         }
       );
 
+
     document
       .getElementById("adminPassword")
       .addEventListener(
         "keydown",
-        function (event) {
+        function(event) {
 
           if (event.key === "Enter") {
+
             tryAdminLogin();
+
           }
 
         }
